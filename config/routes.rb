@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     sessions: "shop/sessions"
   }
   
+  devise_scope :shop do
+    get '/shops/sign_out' => 'devise/sessions#destroy'
+  end
+  
   scope module: :shop do
     root "homes#top"
     get "/about" => "homes#about"
@@ -25,6 +29,7 @@ Rails.application.routes.draw do
     patch "/shops/information" => "shops#update"
     get "/shops/confirm_withdraw" => "shops#confirm_withdraw"
     patch "/shops/withdraw" => "shops#withdraw"
+    
     
     resources :items
     

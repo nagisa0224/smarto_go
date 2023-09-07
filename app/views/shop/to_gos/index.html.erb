@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>To go予約一覧</h3>
+      
+      <div class="to_gp-plus">
+        <%= link_to "新規予約追加", new_to_go_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
+      </div>
+      
+      <div class="to_go-index">
+        <table class="table">
+          
+          <thead>
+            <tr>
+              <th>名前</th>
+              <th>時間</th>
+              <th>備考</th>
+              <th>チェック</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <% @to_gos.each do |to_go| %>
+              <tr>
+                <td><%= link_to to_go_path(to_go.id), class: "link" do %>
+                    <%= to_go.customer_name %>
+                    <% end %>
+                </td>
+                <td><%= to_go.time %></td>
+                <td><%= to_go.body %></td>
+                <td>▫︎</td>
+              </tr>
+            <% end %>
+          </tbody>
+          
+        </table>
+      </div>
+      
+    </div>
+  </div>
+</div>
