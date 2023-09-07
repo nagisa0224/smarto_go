@@ -1,0 +1,2 @@
+class ToGo < ApplicationRecord
+end
