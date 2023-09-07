@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mx-auto">
+      
+      
+      <%= form_with model: @to_go, url: to_gos_path, method: :post do |f| %>
+        <table class="table table-borderless">
+          <h4 class="mt-3 mb-5">To go予約編集</h4>
+          <tr>
+            <td>名前</td>
+            <td><%= f.text_field :customer_name %></td>
+          </tr>
+          <tr>
+            <td>連絡先</td>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <td>予約日</td>
+            <td><%= f.date_field :date %></td>
+          </tr>
+          <tr>
+            <td>時間</td>
+            <td><%= f.text_field :time %></td>
+          </tr>
+          <tr>
+            <td>備考</td>
+            <td><%= f.text_area :body %></td>
+          </tr>
+          <tr>
+            <td>予約商品</td>
+            <td><%#= f.text_area :item %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "変更を保存", class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
