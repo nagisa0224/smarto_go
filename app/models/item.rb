@@ -2,7 +2,7 @@ class Item < ApplicationRecord
     
     has_many :reservation_details
     has_one :notifications
-    belongs_to :shops
+    belongs_to :shop
     has_one_attached :image
     
     def item_status

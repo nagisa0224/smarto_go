@@ -20,7 +20,7 @@ class Shop::ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
-    @item.shop_id = current_shop
+    @item.shop_id = current_shop.id
   end
   
   def edit
