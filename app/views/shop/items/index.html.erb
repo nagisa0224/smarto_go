@@ -1,0 +1,30 @@
+<div class="container px-5 px-sm-0 cake-font">
+  <div class="row">
+
+      <div class="col-md-8 offset-md-1">
+        <h2>商品一覧（全<%= @items %>件）</h2>
+        <div class="row">
+
+          <% @items.each do |item| %>
+            <div class="col-md-6">
+              <div class="card-deck">
+                <div class="card" style="width:22rem">
+                  <%= link_to item_path(item) do %>
+                    <p class="img"><%= image_tag item.image, format: "jpg", size: "359x250" %></p>
+                  <% end %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= item.product_name %></h5>
+                    <% if item.is_active == true %>
+                      <p class="text-success">販売中</p>
+                    <% else %>
+                      <p class="text-danger">販売停止中です</p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
