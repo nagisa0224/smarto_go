@@ -6,6 +6,8 @@ class Shop::SessionsController < Devise::SessionsController
     @shop = current_shop
     to_gos_path
   end
+  
+  
   # GET /resource/sign_in
   # def new
   #   super

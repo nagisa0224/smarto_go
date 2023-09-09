@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <div class="row">
+        <div class="col-md-3">
+          <h4 style="background-color:#C2EEFF">　Shop マイページ　</h4>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-3">
+          <strong>登録情報</strong>
+        </div>
+        <div class="col-md-3 mb-3">
+          <%= link_to"編集する",shops_information_edit_path, class: "btn btn-success" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-9">
+          <table class="table table-bordered">
+            <tr>
+              <td style="width: 30%">お店の名前</td>
+              <td style="width: 70%"><%= @shop.name %></td>
+            </tr>
+            <tr>
+              <td style="width: 30%">メールアドレス</td>
+              <td style="width: 70%"><%= @shop.email %></td>
+            </tr>
+            <!-- 商品アラート未実装 -->
+            <tr>
+              <td style="width: 30%">商品アラート</td>
+              <td style="width: 70%"><%#= * %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-md-2">
+          <!-- 予約履歴url未実装 -->
+          <strong><%= link_to "予約履歴", class: "btn btn-info" %></strong>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
