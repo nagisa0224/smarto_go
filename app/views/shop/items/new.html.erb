@@ -1,10 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 mx-auto">
-      
+      <h4 class="mt-3 mb-5">商品新規登録</h4>
       <%= form_with model: @item, url: items_path, method: :post do |f| %>
         <table class="table table-borderless">
-          <h4 class="mt-3 mb-5">商品新規登録</h4>
           <tr>
             <td>商品画像</td>
             <td><%= f.file_field :image, accept: "image/*" %></td>
@@ -30,7 +29,7 @@
             <td><%= f.radio_button :is_active, true %>
                 <%= f.label :is_active, "販売中" %>
                 <%= f.radio_button :is_active, false %>
-                <%= f.label :is_active,"販売中止" %>
+                <%= f.label :is_active,"販売停止" %>
             </td>
           </tr>
           <tr>
