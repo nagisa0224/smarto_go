@@ -39,7 +39,12 @@ class Shop::ToGosController < ApplicationController
   end
   
   def destroy
-    
+    @to_go = ToGo.find(params[:id])
+    if @to_go.destroy
+      redirect_to to_gos_path
+    else
+      render :edit
+    end
   end
   
   def history
