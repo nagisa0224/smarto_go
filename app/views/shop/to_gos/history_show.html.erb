@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h4>To go予約履歴詳細</h4>
+    </div>
+    
+    <div class="col-md-8 mt-5">
+      <table class="table table-borderless">
+        <tr>
+          <td>名前</td>
+          <td><%= @to_go.customer_name %></td>
+        </tr>
+        <tr>
+          <td>日付</td>
+          <td><%= @to_go.date %></td>
+        </tr>
+        <tr>
+          <td>予約商品</td>
+          <td><%#= item %></td>
+        </tr>
+        <tr>
+          <td>備考</td>
+          <td><%= @to_go.body %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= link_to "戻る", history_path, class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %></td>
+        </tr>
+      </table>
+      
+    </div>
+  </div>
+</div>

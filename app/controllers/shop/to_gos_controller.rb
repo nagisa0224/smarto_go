@@ -47,7 +47,8 @@ class Shop::ToGosController < ApplicationController
   end
   
   def history_show
-    
+    @to_go = ToGo.find(params[:id])
+    @to_go.shop_id = current_shop.id
   end
   
   
