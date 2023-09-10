@@ -28,9 +28,10 @@ class Shop::ToGosController < ApplicationController
     @to_go.shop_id = current_shop.id
   end
   
-  #updateするとデータが増えます。
+
   def update
     @to_go = ToGo.find(params[:id])
+    @to_go.shop_id = current_shop.id
     if @to_go.update(to_go_params)
       redirect_to to_go_path(@to_go.id)
     else
