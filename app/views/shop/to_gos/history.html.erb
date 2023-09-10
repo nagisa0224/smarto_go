@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>To go予約履歴一覧</h3>
+      
+      <div class="to_go-index">
+        <table class="table">
+          
+          <thead>
+            <tr>
+              <th>名前</th>
+              <th>日付</th>
+              <th>商品</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <% @to_gos.each do |to_go| %>
+              <tr>
+                <td><%= link_to history_show_path(to_go.id), class: "link" do %>
+                    <%= to_go.customer_name %>
+                    <% end %>
+                </td>
+                <td><%= to_go.date %></td>
+                <td><%#= to_go.product_name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+          
+        </table>
+      </div>
+      
+    </div>
+  </div>
+</div>

@@ -28,7 +28,6 @@ class Shop::ToGosController < ApplicationController
     @to_go.shop_id = current_shop.id
   end
   
-
   def update
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
@@ -41,6 +40,15 @@ class Shop::ToGosController < ApplicationController
   
   def destroy
     
+  end
+  
+  def history
+    @to_gos = ToGo.all
+  end
+  
+  def history_show
+    @to_go = ToGo.find(params[:id])
+    @to_go.shop_id = current_shop.id
   end
   
   
