@@ -33,11 +33,13 @@ Rails.application.routes.draw do
     
     resources :items
     
-    resources :resercation_details, only: [:create, :update, :destroy]
+    #resources :resercation_details, only: [:new, :create, :index, :show]
     
     #resources :notification
     
     resources :to_gos
+    get "/history" => "to_gos#history"
+    get "/history/show" => "to_gos#history_show"
     
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
