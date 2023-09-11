@@ -24,7 +24,12 @@
         </tr>
         <tr>
           <td>予約商品</td>
-          <td><%= @to_go.item_id %></td>
+          <td>
+              <%# @reservation_details.each do |reservation_detail| %>
+                <%#= reservation_detail.product_name %>
+                <%#= reservation_detail.to_go_amounts %>
+              <%# end %>
+          </td>
         </tr>
         <tr>
           <td>備考</td>

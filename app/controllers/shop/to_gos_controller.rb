@@ -26,6 +26,7 @@ class Shop::ToGosController < ApplicationController
   def show
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
+    #@reservation_details = ReservationDetail.all
   end
   
   def edit

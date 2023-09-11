@@ -35,13 +35,14 @@
             <%#= b.label %>
             <%#= f.select :reservation_details, [0,1,2,3] ,{}, {id: "to_go_item_counts_#{b.value}", name: "to_go[item_counts][]"} %>
           <%# end %>
+          
+          <!--amountsの箇所　最初はitem_countsでした。 -->
           <%= hidden_field_tag "to_go[item_ids][]", @items.map(&:id) %>
           <% @items.each do |item| %>
             <%= item.product_name %>
             <%= f.select :reservation_details, [0,1,2,3] ,{}, {id: "to_go_item_counts_#{item.id}", name: "to_go[item_counts][]"} %>
           <% end %>
         </td>
-        <td><%#= f.text_field :item %></td>
       </tr>
       <tr>
         <td>備考</td>
