@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
     
     has_many :reservation_details
+    has_many :to_go, through: :reservation_details
     has_one :notification
     belongs_to :shop
     has_one_attached :image

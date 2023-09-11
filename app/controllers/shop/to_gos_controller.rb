@@ -2,6 +2,7 @@ class Shop::ToGosController < ApplicationController
   
   def new
     @to_go = ToGo.new
+    @items = Item.all
   end
   
   def create

@@ -1,9 +1,5 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 mx-auto">
-      
-      <h4 class="mt-3 mb-5">To go予約新規登録</h4>
-      <%= form_with model: @to_go, url: to_gos_path, method: :post do |f| %>
+<h4>To go予約新規登録</h4>
+  <%= form_with model: @to_go, url: to_gos_path, method: :post do |f| %>
       <!-- メンターさんが教えてくれたグリッドシステムを使用したコード -->
         <!--<div class="row">-->
         <!--  <div class="col-md-3">-->
@@ -13,40 +9,49 @@
         <!--    <%#= f.text_field :customer_name, class: 'form-control' %>-->
         <!--  </div>-->
         <!--</div>-->
-        <table class="table table-borderless">
-          <tr>
-            <td>名前</td>
-            <!-- 下のclass: 'form-control'はフォームが伸びて勝手に改行になってくれるやつ -->
-            <td><%= f.text_field :customer_name, class: 'form-control' %></td>
-          </tr>
-          <tr>
-            <td>連絡先</td>
-            <td><%= f.text_field :address %></td>
-          </tr>
-          <tr>
-            <td>日付</td>
-            <td><%= f.date_field :date %></td>
-          </tr>
-          <tr>
-            <td>時間</td>
-            <td><%= f.text_field :time %></td>
-          </tr>
-          <tr>
-            <td>予約商品</td>
-            <td><%#= f.text_field :item %></td>
-          </tr>
-          <tr>
-            <td>備考</td>
-            <td><%= f.text_area :body %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <%= f.submit "新規登録", class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %>
-            </td>
-          </tr>
-        </table>
-      <% end %>
-    </div>
-  </div>
-</div>
+    <table class="table table-borderless">
+      <tr>
+        <td>名前</td>
+        <!-- 下のclass: 'form-control'はフォームが伸びて勝手に改行になってくれるやつ -->
+        <td><%= f.text_field :customer_name, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <td>連絡先</td>
+        <td><%= f.text_field :address %></td>
+      </tr>
+      <tr>
+        <td>日付</td>
+        <td><%= f.date_field :date %></td>
+      </tr>
+      <tr>
+        <td>時間</td>
+        <td><%= f.text_field :time %></td>
+      </tr>
+      <tr>
+        <td>予約商品</td>
+        <td>
+          <%#= f.collection_check_boxes(:item_ids, @items, :id, :product_name) do |b| %>
+            <%#= b.label { b.check_box + b.text } %>
+            <%#= b.label %>
+            <%#= f.select :reservation_details, [0,1,2,3] ,{}, {id: "to_go_item_counts_#{b.value}", name: "to_go[item_counts][]"} %>
+          <%# end %>
+          <%= hidden_field_tag "to_go[item_ids][]", @items.map(&:id) %>
+          <% @items.each do |item| %>
+            <%= item.product_name %>
+            <%= f.select :reservation_details, [0,1,2,3] ,{}, {id: "to_go_item_counts_#{item.id}", name: "to_go[item_counts][]"} %>
+          <% end %>
+        </td>
+        <td><%#= f.text_field :item %></td>
+      </tr>
+      <tr>
+        <td>備考</td>
+        <td><%= f.text_area :body %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%= f.submit "新規登録", class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
