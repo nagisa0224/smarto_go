@@ -16,6 +16,10 @@ class Shop::ToGosController < ApplicationController
   
   def index
     @to_gos = ToGo.all
+    # 検索オブジェクト
+    #@search = ToGo.ransack(params[:q])
+    # 検索結果
+    #@togos = @search.result
   end
   
   def show
