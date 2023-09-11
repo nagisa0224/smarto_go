@@ -16,6 +16,10 @@ class Shop::ToGosController < ApplicationController
   
   def index
     @to_gos = ToGo.all
+    # 検索オブジェクト
+    #@search = ToGo.ransack(params[:q])
+    # 検索結果
+    #@togos = @search.result
   end
   
   def show
@@ -39,7 +43,12 @@ class Shop::ToGosController < ApplicationController
   end
   
   def destroy
-    
+    @to_go = ToGo.find(params[:id])
+    if @to_go.destroy
+      redirect_to to_gos_path
+    else
+      render :edit
+    end
   end
   
   def history
