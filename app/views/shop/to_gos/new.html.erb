@@ -30,17 +30,11 @@
       <tr>
         <td>予約商品</td>
         <td>
-          <%#= f.collection_check_boxes(:item_ids, @items, :id, :product_name) do |b| %>
-            <%#= b.label { b.check_box + b.text } %>
-            <%#= b.label %>
-            <%#= f.select :reservation_details, [0,1,2,3] ,{}, {id: "to_go_item_counts_#{b.value}", name: "to_go[item_counts][]"} %>
-          <%# end %>
-          
-          <!--amountsの箇所　最初はitem_countsでした。 -->
-          <%= hidden_field_tag "to_go[item_ids][]", @items.map(&:id) %>
-          <% @items.each do |item| %>
-            <%= item.product_name %>
-            <%= f.select :reservation_details, [0,1,2,3] ,{}, {id: "to_go_item_counts_#{item.id}", name: "to_go[item_counts][]"} %>
+          <% Item.all.each do |detail| %>
+            <%= f.fields_for :reservation_details, @to_go.reservation_details.build do |form| %>
+              <%= form.number_field :item_counts %>
+              <%= form.select :item_id, Item.all.map { |i| [i.product_name, i.id] } %>
+            <% end %>
           <% end %>
         </td>
       </tr>

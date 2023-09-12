@@ -26,12 +26,12 @@ class Shop::ToGosController < ApplicationController
   def show
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
-    #@reservation_details = ReservationDetail.all
   end
   
   def edit
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
+    @items = Item.all
   end
   
   def update
@@ -67,7 +67,17 @@ class Shop::ToGosController < ApplicationController
   private
   
   def to_go_params
-    params.require(:to_go).permit(:customer_name, :address, :date, :time, :body)
+    params.require(:to_go).permit(:customer_name, :address, :date, :time, :body, reservation_details_attributes:[:id, :item_counts, :item_id, :_destroy])
   end
+  
+  #def to_go_params
+    #params.require(:to_go).permit(:customer_name, :address, :date, :time, :body, reservation_details: {})
+  #end
+  
+  #def to_go_params
+    #params.require(:to_go).permit(:customer_name, :address, :date, :time, :body, reservation_details_attributes: [:item_id, :amount])
+  #end
+
+
   
 end

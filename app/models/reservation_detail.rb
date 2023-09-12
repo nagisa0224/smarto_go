@@ -1,4 +1,4 @@
 class ReservationDetail < ApplicationRecord
-  has_one :item
-  has_one :to_go
+  belongs_to :item
+  belongs_to :to_go
 end

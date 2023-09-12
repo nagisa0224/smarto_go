@@ -25,10 +25,10 @@
         <tr>
           <td>予約商品</td>
           <td>
-              <%# @reservation_details.each do |reservation_detail| %>
-                <%#= reservation_detail.product_name %>
-                <%#= reservation_detail.to_go_amounts %>
-              <%# end %>
+              <% @to_go.reservation_details.each do |detail| %>
+                <%= detail.item.product_name %>
+                <%= detail.item_counts %>
+              <% end %>
           </td>
         </tr>
         <tr>
