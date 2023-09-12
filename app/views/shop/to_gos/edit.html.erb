@@ -28,7 +28,14 @@
           </tr>
           <tr>
             <td>予約商品</td>
-            <td><%#= f.text_area :item %></td>
+            <td>
+              <% Item.all.each do |detail| %>
+                <%= f.fields_for :reservation_details, @to_go.reservation_details.build do |form| %>
+                  <%= form.number_field :item_counts %>
+                  <%= form.select :item_id, Item.all.map { |i| [i.product_name, i.id] } %>
+                <% end %>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td></td>
