@@ -5,6 +5,7 @@ class Shop::ToGosController < ApplicationController
     @items = Item.all
   end
   
+  
   def create
     @to_go = ToGo.new(to_go_params)
     @to_go.shop_id = current_shop.id
@@ -15,6 +16,7 @@ class Shop::ToGosController < ApplicationController
     end
   end
   
+  
   def index
     @to_gos = ToGo.all
     # 検索オブジェクト
@@ -23,16 +25,19 @@ class Shop::ToGosController < ApplicationController
     #@togos = @search.result
   end
   
+  
   def show
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
   end
+  
   
   def edit
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
     @items = Item.all
   end
+  
   
   def update
     @to_go = ToGo.find(params[:id])
@@ -44,6 +49,7 @@ class Shop::ToGosController < ApplicationController
     end
   end
   
+  
   def destroy
     @to_go = ToGo.find(params[:id])
     if @to_go.destroy
@@ -53,14 +59,17 @@ class Shop::ToGosController < ApplicationController
     end
   end
   
+  
   def history
     @to_gos = ToGo.all
   end
+  
   
   def history_show
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
   end
+  
   
   def search
     @to_gos = ToGo.search(params[:keyword])
@@ -72,7 +81,7 @@ class Shop::ToGosController < ApplicationController
   private
   
   def to_go_params
-    params.require(:to_go).permit(:customer_name, :address, :date, :time, :body, reservation_details_attributes:[:id, :item_counts, :item_id, :_destroy])
+    params.require(:to_go).permit(:customer_name, :address, :date, :time, :body, reservation_details_attributes: [:id, :item_counts, :item_id, :_destroy])
   end
   
   #def to_go_params
