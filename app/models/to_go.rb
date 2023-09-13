@@ -8,9 +8,9 @@ class ToGo < ApplicationRecord
   
   validates :customer_name, presence: true
   
-  def self.search(search)
-    if search
-      ToGo.where(['customer_name LIKE ?', "%#{search}%"])
+  def self.search(keyword)
+    if keyword
+      ToGo.where(["customer_name LIKE ?", "%#{keyword}%"])
       #Adminには検索したいテーブル、addressには検索したいカラム名を入力する
     else
       ToGo.all

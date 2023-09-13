@@ -7,7 +7,12 @@
         <%= link_to "新規予約追加", new_to_go_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
       </div>
       
-      
+      <%= form_with url: search_path, method: :get do |f| %>
+        <%= f.label :keyword, "名前で検索" %>
+        <%= f.text_field :keyword %>
+        <%= f.submit "検索" %>
+      <% end %>
+
       
       <div class="to_go-index">
         <table class="table">

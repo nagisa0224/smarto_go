@@ -1,0 +1,30 @@
+<h2>検索結果一覧</h2>
+
+<div class="to_go-index">
+        <table class="table">
+          
+          <thead>
+            <tr>
+              <th>名前</th>
+              <th>時間</th>
+              <th>備考</th>
+              <th>チェック</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <% @to_gos.each do |to_go| %>
+              <tr>
+                <td><%= link_to to_go_path(to_go.id), class: "link" do %>
+                    <%= to_go.customer_name %>
+                    <% end %>
+                </td>
+                <td><%= to_go.time %></td>
+                <td><%= to_go.body %></td>
+                <td>▫︎</td>
+              </tr>
+            <% end %>
+          </tbody>
+          
+        </table>
+      </div>
