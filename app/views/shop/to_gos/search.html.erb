@@ -1,20 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h3>To go予約一覧</h3>
-      
-      <div class="to_gp-plus">
-        <%= link_to "新規予約追加", new_to_go_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
-      </div>
-      
-      <%= form_with url: search_path, method: :get do |f| %>
-        <%= f.label :keyword, "名前で検索" %>
-        <%= f.text_field :keyword %>
-        <%= f.submit "検索" %>
-      <% end %>
+<h2>検索結果一覧</h2>
 
-      
-      <div class="to_go-index">
+<div class="to_go-index">
         <table class="table">
           
           <thead>
@@ -42,7 +28,3 @@
           
         </table>
       </div>
-      
-    </div>
-  </div>
-</div>

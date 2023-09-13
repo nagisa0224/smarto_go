@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     patch "/shops/information" => "shops#update"
     get "/shops/confirm_withdraw" => "shops#confirm_withdraw"
     patch "/shops/withdraw" => "shops#withdraw"
-    
+
     
     resources :items
     
@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     resources :to_gos
     get "/history" => "to_gos#history"
     get "/history/show/:id" => "to_gos#history_show", as: :history_show
+    get "/search", to: "to_gos#search"
     
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
