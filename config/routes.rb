@@ -29,7 +29,8 @@ Rails.application.routes.draw do
     patch "/shops/information" => "shops#update"
     get "/shops/confirm_withdraw" => "shops#confirm_withdraw"
     patch "/shops/withdraw" => "shops#withdraw"
-    
+    get "names/search", to: "names#search"
+
     
     resources :items
     

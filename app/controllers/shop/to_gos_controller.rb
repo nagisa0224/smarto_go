@@ -62,6 +62,11 @@ class Shop::ToGosController < ApplicationController
     @to_go.shop_id = current_shop.id
   end
   
+  def search
+    @customers = ToGo.search(params[:search])
+    #@teamsは好きなものを入力して、Adminの部分には検索したいテーブル名を入力する
+  end
+
   
   
   private
