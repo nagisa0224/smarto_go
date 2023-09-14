@@ -17,6 +17,30 @@ class ToGo < ApplicationRecord
       #検索結果が当てはまらない場合は全て表示させる（必要ない場合は削除する）
     end
   end
+  
+  
+  #在庫管理
+  def decrease_inventory(item_id, item_counts)
+    item.with_lock do
+      if item.stock >= itemk_counts
+        item.update(stock: item.stock - item_counts)
+      else
+        raise "在庫切れエラー" # 在庫が足りない場合の処理
+      end
+    end
+  end
+  
+  ActiveRecord::Base.transaction do
+  @reservation = Reservation.new(reservation_params)
+    if @reservation.save
+      decrease_inventory(@reservation.product, @reservation.quantity)
+      redirect_to reservations_path
+    else
+      render :new
+    end
+  end
+
+
 
   
 end
