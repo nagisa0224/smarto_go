@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   
-  devise_for :admins, skip: [:registrations, :passwords], controllers:{
+  devise_for :admin, skip: [:registrations, :passwords], controllers:{
     sessions: "admin/sessions"
   }
   
   namespace :admin do
-    get "top" => "homes#top"
-    
-    resources :shop, except: [:new, :create, :destoroy]
+    resources :shops, except: [:new, :create, :destoroy]
     
   end
   

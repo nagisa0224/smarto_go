@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <h4>Shop編集ページ</h4>
+      
+      <%= form_with model:  @shop, url: admin_shop_path(@shop.id), method: :patch do |f| %>
+        <div class="col-md-4">
+          <%= f.text_field :name %>
+        </div>
+        
+        <div class="col-md-4">
+          <%= f.text_field :email %>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="field">
+            <%= f.radio_button :is_admission, false %>
+            <%= f.label :is_admission, "有効" %>
+            <%= f.radio_button :is_admission, true %>
+            <%= f.label :is_admission, "退会" %>
+          </div>
+        </div>
+        
+        <div class="col-md-6 text-right">
+          <%= f.submit "変更内容を保存", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
