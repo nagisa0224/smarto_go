@@ -29,9 +29,10 @@
           <tbody>
             <% @to_gos.each do |to_go| %>
               <tr>
-                <td><%= link_to to_go_path(to_go.id), class: "link" do %>
-                    <%= to_go.customer_name %>
-                    <% end %>
+                <td>
+                  <%= link_to to_go_path(to_go.id), class: "link" do %>
+                  <%= to_go.customer_name %>
+                  <% end %>
                 </td>
                 <td><%= to_go.time %></td>
                 <td><%= to_go.body %></td>

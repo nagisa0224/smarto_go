@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mx-auto">
+      <h3>Shop一覧</h3>
+      
+      <div class="shop-index">
+        <table>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>お店の名前</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <% @shops.each do |shop| %>
+              <tr>
+                <th><%= shop.id %></th>
+                <th>
+                  <%= link_to admin_shop_path(shop.id), class: "link" do %>
+                    <%= shop.name %>
+                  <% end %>
+                </th>
+                <th><%= shop.is_admission %></th>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>

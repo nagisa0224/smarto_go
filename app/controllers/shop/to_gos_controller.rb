@@ -19,10 +19,6 @@ class Shop::ToGosController < ApplicationController
   
   def index
     @to_gos = ToGo.all
-    # 検索オブジェクト
-    #@search = ToGo.ransack(params[:q])
-    # 検索結果
-    #@togos = @search.result
   end
   
   
@@ -84,14 +80,5 @@ class Shop::ToGosController < ApplicationController
     params.require(:to_go).permit(:customer_name, :address, :date, :time, :body, reservation_details_attributes: [:id, :item_counts, :item_id, :_destroy])
   end
   
-  #def to_go_params
-    #params.require(:to_go).permit(:customer_name, :address, :date, :time, :body, reservation_details: {})
-  #end
-  
-  #def to_go_params
-    #params.require(:to_go).permit(:customer_name, :address, :date, :time, :body, reservation_details_attributes: [:item_id, :amount])
-  #end
 
-
-  
 end
