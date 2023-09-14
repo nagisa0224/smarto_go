@@ -9,7 +9,7 @@ class Shop::ToGosController < ApplicationController
   def create
     @to_go = ToGo.new(to_go_params)
     @to_go.shop_id = current_shop.id
-    if @to_go.save
+    if @to_go.save_and_decrease_stock
       redirect_to to_go_path(@to_go.id)
     else
       render :new
@@ -56,6 +56,7 @@ class Shop::ToGosController < ApplicationController
   end
   
   
+  #予約履歴に関するコントローラー
   def history
     @to_gos = ToGo.all
   end
@@ -67,6 +68,7 @@ class Shop::ToGosController < ApplicationController
   end
   
   
+  #検索に関するコントローラー
   def search
     @to_gos = ToGo.search(params[:keyword])
     #@teamsは好きなものを入力して、Adminの部分には検索したいテーブル名を入力する
