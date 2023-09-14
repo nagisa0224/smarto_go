@@ -9,8 +9,7 @@ class Shop::ToGosController < ApplicationController
   def create
     @to_go = ToGo.new(to_go_params)
     @to_go.shop_id = current_shop.id
-    if @to_go.save
-      decrease_inventory(@to_go.item_id, @to_go.item_counts)
+    if @to_go.save_and_decrease_stock
       redirect_to to_go_path(@to_go.id)
     else
       render :new

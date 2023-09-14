@@ -19,27 +19,28 @@ class ToGo < ApplicationRecord
   end
   
   
-  #在庫管理
-  def decrease_inventory(item_id, item_counts)
-    item.with_lock do
-      if item.stock >= itemk_counts
-        item.update(stock: item.stock - item_counts)
-      else
-        raise "在庫切れエラー" # 在庫が足りない場合の処理
+  def save_and_decrease_stock
+    ActiveRecord::Base.transaction do
+      save!
+      #itemの在庫を減らす
+      reservation_details.each do |rd|
+        item = rd.item
+        #.with_lock　同時にアクセスするのを防ぐ（一人ずつ処理するために一回ロックする）
+        item.with_lock do
+          if item.stock >= rd.item_counts
+            item.update!(stock: item.stock - rd.item_counts)
+          else
+            raise "在庫切れエラー" # 在庫が足りない場合の処理
+          end
+        end
       end
     end
+  rescue ActiveRecord::RecordInvalid
+    false
+  rescue => e
+    errors.add(:base, e.message)
+    false
   end
-  
-  ActiveRecord::Base.transaction do
-  @reservation = Reservation.new(reservation_params)
-    if @reservation.save
-      decrease_inventory(@reservation.product, @reservation.quantity)
-      redirect_to reservations_path
-    else
-      render :new
-    end
-  end
-
 
 
   
