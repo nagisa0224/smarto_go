@@ -1,11 +1,14 @@
 @use '~bootstrap/scss/bootstrap';
 
-* {
+@import 'header';
+@import 'top';
+@import 'about';
+@import 'session';
+@import 'registration';
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.header {
-  margin: 0 auto;
+  list-style: none;
 }

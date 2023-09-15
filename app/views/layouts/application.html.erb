@@ -11,29 +11,25 @@
   </head>
 
   <body>
-    <header class="mb-4 bg-light border-bottom border-dark">
-      <nav class="navbar navbar-expand-lg navbar-dark p-2">
+    <header class="main-header">
         <div class="logo">
           <%= link_to root_path, class:"navbar-brand" do %>
-            <%= image_tag "Smarto-go-logo.png", :size => "150x100" %>
+            <%= image_tag "Smarto-go-logo.png" %>
           <% end %>
         </div>
         
-        <div class="header-btn">
+        <nav class="nav-buttons">
           <% if shop_signed_in? %>
-            <li><%= link_to "ロゴ", root_path %></li>
             <li><%= link_to "予約一覧", to_gos_path %></li>
             <li><%= link_to "商品一覧", items_path %></li>
             <li><%= link_to "home", shops_my_page_path %></li>
             <li><%= link_to "ログアウト", destroy_shop_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to "ロゴ", root_path %></li>
             <li><%= link_to "About", about_path %></li>
             <li><%= link_to "新規登録", new_shop_registration_path %></li>
             <li><%= link_to "ログイン", new_shop_session_path %></li>
           <% end %>
-        </div>
-      </nav>
+        </nav>
     </header>
     
     <main>
