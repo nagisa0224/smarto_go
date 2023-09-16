@@ -1,46 +1,45 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-      <h4>To go予約詳細</h4>
-    </div>
-    
-    <div class="col-md-8 mt-5">
-      <table class="table table-borderless">
-        <tr>
-          <td>名前</td>
-          <td><%= @to_go.customer_name %></td>
-        </tr>
-        <tr>
-          <td>連絡先</td>
-          <td><%= @to_go.address %></td>
-        </tr>
-        <tr>
-          <td>日付</td>
-          <td><%= @to_go.date %></td>
-        </tr>
-        <tr>
-          <td>時間</td>
-          <td><%= @to_go.time %></td>
-        </tr>
-        <tr>
-          <td>予約商品</td>
-          <td>
-              <% @to_go.reservation_details.each do |detail| %>
-                <%= detail.item.product_name %>
-                <%= detail.item_counts %>
-              <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td>備考</td>
-          <td><%= @to_go.body %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><%= link_to "編集する", edit_to_go_path, class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %></td>
-        </tr>
-      </table>
-      
+    <h3 class="mt-4 ml-5 index-title">To go予約詳細</h3>
+    <div class="col-12">
+      <div class="col-md-11 mt-5">
+        <table class="table table-bordered">
+          <tr>
+            <td>名前</td>
+            <td><%= @to_go.customer_name %></td>
+          </tr>
+          <tr>
+            <td>連絡先</td>
+            <td><%= @to_go.address %></td>
+          </tr>
+          <tr>
+            <td>日付</td>
+            <td><%= @to_go.date %></td>
+          </tr>
+          <tr>
+            <td>時間</td>
+            <td><%= @to_go.time %></td>
+          </tr>
+          <tr>
+            <td>予約商品</td>
+            <td>
+                <% @to_go.reservation_details.each do |detail| %>
+                  <%= detail.item.product_name %>
+                  <%= detail.item_counts %>
+                <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>備考</td>
+            <td><%= @to_go.body %></td>
+          </tr>
+        </table>
+        <div class="to_go-button">
+          <%= link_to "編集する", edit_to_go_path, class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %>
+        </div>
+
+        
+      </div>
     </div>
   </div>
 </div>
