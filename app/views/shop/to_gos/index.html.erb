@@ -12,6 +12,7 @@
         <%= f.text_field :keyword %>
         <%= f.submit "検索" %>
       <% end %>
+      
 
       
       <div class="to_go-index">
@@ -20,6 +21,7 @@
           <thead>
             <tr>
               <th>名前</th>
+              <th>日付</th>
               <th>時間</th>
               <th>備考</th>
               <th>チェック</th>
@@ -34,9 +36,15 @@
                   <%= to_go.customer_name %>
                   <% end %>
                 </td>
+                <td><%= to_go.date %></td>
                 <td><%= to_go.time %></td>
                 <td><%= to_go.body %></td>
-                <td>▫︎</td>
+                <td>
+                  <%#= check_box :to_go, :to_go_ids, {class: "check_box"}, true, false %>
+                  <%= form_with model: to_go, url: change_status_path(to_go) do |f| %>
+                    <%= f.submit to_go.status == true ? "受け取り済み" : "受け渡し前" %>
+                  <% end %>
+                </td>
               </tr>
             <% end %>
           </tbody>

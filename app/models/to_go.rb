@@ -8,6 +8,7 @@ class ToGo < ApplicationRecord
   
   validates :customer_name, presence: true
   
+  
   def self.search(keyword)
     if keyword
       ToGo.where(["customer_name LIKE ?", "%#{keyword}%"])
@@ -41,6 +42,9 @@ class ToGo < ApplicationRecord
     errors.add(:base, e.message)
     false
   end
+  
+  
+  scope :future_reservations, -> { where('time < ?', Time.now) }
 
 
   
