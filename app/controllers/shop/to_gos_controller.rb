@@ -19,6 +19,7 @@ class Shop::ToGosController < ApplicationController
   
   def index
     @to_gos = ToGo.all
+    @to_gos = ToGo.where('date >= ?', Date.current).order(:date)
   end
   
   
@@ -73,6 +74,14 @@ class Shop::ToGosController < ApplicationController
     @to_gos = ToGo.search(params[:keyword])
     #@teamsは好きなものを入力して、Adminの部分には検索したいテーブル名を入力する
   end
+  
+  
+  def change_status
+    to_go = ToGo.find(params[:id])
+    to_go.update(:status => !to_go.status)
+      redirect_back fallback_location: root_path
+  end
+
 
   
   

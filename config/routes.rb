@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     get "/history" => "to_gos#history"
     get "/history/show/:id" => "to_gos#history_show", as: :history_show
     get "/search", to: "to_gos#search"
+    patch "/change_status/:id" => "to_gos#change_status", as: :change_status
     
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
