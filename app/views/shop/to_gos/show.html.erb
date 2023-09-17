@@ -2,7 +2,13 @@
   <div class="row">
     <h3 class="mt-4 ml-5 index-title">To go予約詳細</h3>
     <div class="col-12">
-      <div class="col-md-11 mt-5">
+      
+      <div class="col-md-7 mt-5 mx-auto">
+        
+        <div class="text-right mb-1 to_go-button">
+          <%= link_to "戻る", to_gos_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
+        </div>
+        
         <table class="table table-bordered">
           <tr>
             <td>名前</td>
@@ -34,9 +40,10 @@
             <td><%= @to_go.body %></td>
           </tr>
         </table>
-        <div class="to_go-button">
-          <%= link_to "編集する", edit_to_go_path, class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %>
-        </div>
+        
+          <div class="to_go-button text-center">
+            <%= link_to "編集する", edit_to_go_path, class: "btn", style: "background-color: #64CCC5; color: white;" %>
+          </div>
 
         
       </div>
