@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <h3 class="mt-4 ml-5 index-title">To go予約詳細</h3>
+    <h2 class="mt-3 ml-2 index-title text-center mx-auto">- To go予約詳細 -</h2>
     <div class="col-12">
       
       <div class="col-md-7 mt-5 mx-auto">
@@ -11,23 +11,23 @@
         
         <table class="table table-bordered">
           <tr>
-            <td>名前</td>
+            <td class="class-td">名前</td>
             <td><%= @to_go.customer_name %></td>
           </tr>
           <tr>
-            <td>連絡先</td>
+            <td class="class-td">連絡先</td>
             <td><%= @to_go.address %></td>
           </tr>
           <tr>
-            <td>日付</td>
+            <td class="class-td">日付</td>
             <td><%= @to_go.date %></td>
           </tr>
           <tr>
-            <td>時間</td>
+            <td class="class-td">時間</td>
             <td><%= @to_go.time %></td>
           </tr>
           <tr>
-            <td>予約商品</td>
+            <td class="class-td">予約商品</td>
             <td>
                 <% @to_go.reservation_details.each do |detail| %>
                   <%= detail.item.product_name %>
@@ -36,7 +36,7 @@
             </td>
           </tr>
           <tr>
-            <td>備考</td>
+            <td class="class-td">備考</td>
             <td><%= @to_go.body %></td>
           </tr>
         </table>

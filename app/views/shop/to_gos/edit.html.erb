@@ -1,49 +1,53 @@
 <div class="container-fluid">
   <div class="row">
-    <h3 class="mt-3 ml-2 index-title">To go予約新規登録</h3>
+    <h3 class="mt-3 ml-2 index-title text-center mx-auto">- To go予約新規登録 -</h3>
     <div class="col-12">
-      <div class="col-md-7 mt-5 mx-auto">
+      <div class="col-md-6 mt-5 mx-auto">
         
         <div class="text-right mb-1 to_go-button">
           <%= link_to "戻る", to_gos_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
         </div>
         
         <%= form_with model: @to_go, url: to_go_path(@to_go), local: true do |f| %>
-          <table class="table table-bordered" style="border: none;">
-            <tr>
-              <td>名前</td>
-              <td><%= f.text_field :customer_name %></td>
-            </tr>
-            <tr>
-              <td>連絡先</td>
-              <td><%= f.text_field :address %></td>
-            </tr>
-            <tr>
-              <td>日付</td>
-              <td><%= f.date_field :date %></td>
-            </tr>
-            <tr>
-              <td>時間</td>
-              <td><%= f.text_field :time %></td>
-            </tr>
-            <tr>
-              <td>予約商品</td>
-              <td>
-                <%= f.fields_for :reservation_details, @to_go.reservation_details do |detail_form| %>
-                  <%= detail_form.number_field :item_counts %>
-                  <%= detail_form.select :item_id, Item.all.map { |i| [i.product_name, i.id] }, {}, selected: detail_form.object.item_id %>
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <td>備考</td>
-              <td><%= f.text_area :body %></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><%= f.submit "変更を保存", class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %></td>
-            </tr>
-          </table>
+        
+          <div class="form-group form-name">
+            <%= f.label :customer_name, "名前", {class: "class_label"} %>
+            <%= f.text_field :customer_name, class: "form-control" %>
+          </div>
+          
+          <div class="form-group form-address">
+            <%= f.label :address, "連絡先", {class: "class_label"} %>
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+          
+          <div class="form-group form-date">
+            <%= f.label :date, "日付", {class: "class_label"} %>
+            <%= f.date_field :date, class: "form-control" %>
+          </div>
+          
+          <div class="form-group form-time">
+            <%= f.label :time, "時間", {class: "class_label"} %>
+            <%= f.text_field :time, class: "form-control" %>
+          </div>
+          
+          <div id="reservation_details" class="form-group">
+            <%= f.label :product_name, "予約商品", {class: "class_label"} %>
+            <%= f.fields_for :reservation_details do |detail_form| %>
+              <%= render 'reservation_detail_fields', f: detail_form %>
+            <% end %>
+            <div class="links">
+              <%= link_to_add_association "追加", f, :reservation_details, class: "btn", style: "background-color: #64CCC5; color: white;" %>
+            </div>
+          </div>
+          
+          <div class="form-group form-body">
+            <%= f.label :body, "備考", {class: "class_label"} %>
+            <%= f.text_area :body, class: "form-control" %>
+          </div>
+          
+          <div class="form-group text-center">
+            <%= f.submit "変更を保存", class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %>
+          </div>
         <% end %>
       </div>
     </div>
