@@ -1,0 +1,7 @@
+<div class="nested-fields">
+  <div class="form-group">
+    <%= f.number_field :item_counts %>
+    <%= f.collection_select :item_id, Item.all, :id, :product_name %>
+  </div>
+  <%= link_to_remove_association '削除', f %>
+</div>

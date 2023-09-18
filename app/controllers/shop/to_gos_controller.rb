@@ -2,12 +2,14 @@ class Shop::ToGosController < ApplicationController
   
   def new
     @to_go = ToGo.new
+    @reservation_detail = @to_go.reservation_details.build
     @items = Item.all
   end
   
   
   def create
     @to_go = ToGo.new(to_go_params)
+    #byebug
     @to_go.shop_id = current_shop.id
     if @to_go.save_and_decrease_stock
       redirect_to to_go_path(@to_go.id)
