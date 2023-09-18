@@ -1,0 +1,29 @@
+.container-fluid{
+  background-color: #e0ffff;
+  height: 100vh;
+  display: block;
+}
+
+.index-title{
+  background-color: #ffff00;
+}
+
+td{
+  text-align: center;
+  vertical-align: middle;
+}
+
+th{
+  background-color: #ffff00;
+}
+
+.custom-label-class{
+  background-color: #ffa500;
+}
+
+.table.table-bordered{
+  border-width: 2px;
+  border-collapse: collapse;
+  border-color: #000;
+}
+

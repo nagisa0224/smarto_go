@@ -1,34 +1,51 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12 mx-auto">
-
-      <%= link_to "予約を削除", to_go_path, method: :delete, class: "btn btn-sm btn-danger" %>
-      
-      
-      <%= form_with model: @to_go, url: to_go_path(@to_go), local: true do |f| %>
-        <%= f.label :name, "名前" %>
-        <%= f.text_field :customer_name %>
+    <h3 class="mt-3 ml-2 index-title">To go予約新規登録</h3>
+    <div class="col-12">
+      <div class="col-md-7 mt-5 mx-auto">
         
-        <%= f.label :address, "連絡先" %>
-        <%= f.text_field :address %>
+        <div class="text-right mb-1 to_go-button">
+          <%= link_to "戻る", to_gos_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
+        </div>
         
-        <%= f.label :date, "予約日" %>
-        <%= f.date_field :date %>
-        
-        <%= f.label :time, "時間" %>
-        <%= f.text_field :time %>
-        
-        <%= f.label :body, "備考" %>
-        <%= f.text_area :body %>
-        
-        <%= f.fields_for :reservation_details, @to_go.reservation_details do |detail_form| %>
-          <%= detail_form.number_field :item_counts %>
-          <%= detail_form.select :item_id, Item.all.map { |i| [i.product_name, i.id] }, {}, selected: detail_form.object.item_id %>
+        <%= form_with model: @to_go, url: to_go_path(@to_go), local: true do |f| %>
+          <table class="table table-bordered" style="border: none;">
+            <tr>
+              <td>名前</td>
+              <td><%= f.text_field :customer_name %></td>
+            </tr>
+            <tr>
+              <td>連絡先</td>
+              <td><%= f.text_field :address %></td>
+            </tr>
+            <tr>
+              <td>日付</td>
+              <td><%= f.date_field :date %></td>
+            </tr>
+            <tr>
+              <td>時間</td>
+              <td><%= f.text_field :time %></td>
+            </tr>
+            <tr>
+              <td>予約商品</td>
+              <td>
+                <%= f.fields_for :reservation_details, @to_go.reservation_details do |detail_form| %>
+                  <%= detail_form.number_field :item_counts %>
+                  <%= detail_form.select :item_id, Item.all.map { |i| [i.product_name, i.id] }, {}, selected: detail_form.object.item_id %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>備考</td>
+              <td><%= f.text_area :body %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit "変更を保存", class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %></td>
+            </tr>
+          </table>
         <% end %>
-        <%= f.submit "変更を保存", class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %>
-      <% end %>
-      
-      
+      </div>
     </div>
   </div>
 </div>
