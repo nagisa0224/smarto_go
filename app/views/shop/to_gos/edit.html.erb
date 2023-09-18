@@ -9,25 +9,25 @@
         </div>
         
         <%= form_with model: @to_go, url: to_go_path(@to_go), local: true do |f| %>
-          <table class="table-bordered">
+          <table class="table table-bordered" style="border: none;">
             <tr>
-              <td><%= f.label :name, "名前" %></td>
+              <td>名前</td>
               <td><%= f.text_field :customer_name %></td>
             </tr>
             <tr>
-              <td><%= f.label :address, "連絡先" %></td>
+              <td>連絡先</td>
               <td><%= f.text_field :address %></td>
             </tr>
             <tr>
-              <td><%= f.label :date, "日付" %></td>
+              <td>日付</td>
               <td><%= f.date_field :date %></td>
             </tr>
             <tr>
-              <td><%= f.label :time, "時間" %></td>
+              <td>時間</td>
               <td><%= f.text_field :time %></td>
             </tr>
             <tr>
-              <td><%= f.label :product_name, "予約商品" %></td>
+              <td>予約商品</td>
               <td>
                 <%= f.fields_for :reservation_details, @to_go.reservation_details do |detail_form| %>
                   <%= detail_form.number_field :item_counts %>
@@ -36,7 +36,7 @@
               </td>
             </tr>
             <tr>
-              <td><%= f.label :body, "備考" %></td>
+              <td>備考</td>
               <td><%= f.text_area :body %></td>
             </tr>
             <tr>
