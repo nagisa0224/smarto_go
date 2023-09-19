@@ -5,7 +5,7 @@
       <div class="col-md-6 mt-5 mx-auto">
         
         <div class="text-right mb-1 return-button">
-          <%= link_to "戻る", to_gos_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
+          <%= link_to "戻る", to_go_path(@to_go), class: "btn", style: "background-color: #64CCC5; color:white;" %>
         </div>
         
         <%= form_with model: @to_go, url: to_go_path(@to_go), local: true do |f| %>
