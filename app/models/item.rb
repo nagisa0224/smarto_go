@@ -21,12 +21,5 @@ class Item < ApplicationRecord
         image.variant(resize_to_limit: [width, height]).processed
     end
     
-    #def notification
-        #if nor_items == true
-            #"の在庫数が最低在庫数に達しました。"
-        #else
-            #"在庫アラートはありません。"
-        #end
-    #end
     
 end

@@ -4,10 +4,10 @@
     <div class="col-12">
       
       <div class="ml-3">
-        <div class="col-md-11 text-right">
+        <div class="col-md-11 text-right plus-button">
           <%= link_to "新規予約追加", new_to_go_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
         </div>
-      
+          
           <div class="col-md-11 mt-2 text-right">
             <%= form_with url: search_path, method: :get do |f| %>
               <%= f.label :keyword, "名前で検索", class: "custom-label-class" %>
