@@ -8,6 +8,10 @@ class ToGo < ApplicationRecord
   accepts_nested_attributes_for :reservation_details
   
   validates :customer_name, presence: true
+  validates :date, presence: true
+  #下２つコメントアウト外すとトランザクションがロールバックされちゃう
+  #validates :product_name, presence: true
+  #validates :item_counts, presence: true
   
   
   def self.search(keyword)

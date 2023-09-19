@@ -5,6 +5,8 @@ class Item < ApplicationRecord
     belongs_to :shop
     has_one_attached :image
     
+    validates :product_name, presence: true
+    
     def item_status
         if is_active == true
             "販売中"
