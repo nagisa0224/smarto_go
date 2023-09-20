@@ -1,40 +1,47 @@
 <div class="container-fluid">
   <div class="row">
-    <h2 class="mt-3 ml-2 to_go-title text-center mx-auto">- To go予約履歴詳細 -</h2>
-  </div>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <h4>To go予約履歴詳細</h4>
-    </div>
-    
-    <div class="col-md-8 mt-5">
-      <table class="table table-borderless">
-        <tr>
-          <td>名前</td>
-          <td><%= @to_go.customer_name %></td>
-        </tr>
-        <tr>
-          <td>日付</td>
-          <td><%= @to_go.date %></td>
-        </tr>
-        <tr>
-          <td>予約商品</td>
-          <td><%#= item %></td>
-        </tr>
-        <tr>
-          <td>備考</td>
-          <td><%= @to_go.body %></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><%= link_to "戻る", history_path, class: "btn", style: "background-color: #64CCC5; color: white; mx-3" %></td>
-        </tr>
-      </table>
-      
+    <h2 class="mt-3 ml-2 history-title text-center mx-auto">- To go予約履歴詳細 -</h2>
+    <div class="col-12">
+      <div class="col-md-7 mt-5 mx-auto">
+        
+        <div class="text-right mb-1 return-button">
+          <%= link_to "戻る", history_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
+        </div>
+        
+        <table class="table table-bordered">
+          <tr>
+            <td class="class-td">名前</td>
+            <td><%= @to_go.customer_name %></td>
+          </tr>
+          
+          <tr>
+            <td class="class-td">日付</td>
+            <td><%= @to_go.date %></td>
+          </tr>
+          
+          <tr>
+            <td class="class-td">時間</td>
+            <td><%= @to_go.time %></td>
+          </tr>
+          
+          <tr>
+            <td class="class-td">購入商品</td>
+            <td>
+                <% @to_go.reservation_details.each do |detail| %>
+                  <%= detail.item.product_name %>：
+                  <%= detail.item_counts %>
+                  </br>
+                <% end %>
+            </td>
+          </tr>
+          
+          <tr>
+            <td class="class-td">備考</td>
+            <td><%= @to_go.body %></td>
+          </tr>
+        </table>
+        
+      </div>
     </div>
   </div>
 </div>
