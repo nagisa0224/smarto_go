@@ -14,27 +14,33 @@
             <td class="class-td">名前</td>
             <td><%= @to_go.customer_name %></td>
           </tr>
+          
           <tr>
             <td class="class-td">連絡先</td>
             <td><%= @to_go.address %></td>
           </tr>
+          
           <tr>
             <td class="class-td">日付</td>
             <td><%= @to_go.date %></td>
           </tr>
+          
           <tr>
             <td class="class-td">時間</td>
             <td><%= @to_go.time %></td>
           </tr>
+          
           <tr>
             <td class="class-td">予約商品</td>
             <td>
                 <% @to_go.reservation_details.each do |detail| %>
-                  <%= detail.item.product_name %>
+                  <%= detail.item.product_name %>：
                   <%= detail.item_counts %>
+                  </br>
                 <% end %>
             </td>
           </tr>
+          
           <tr>
             <td class="class-td">備考</td>
             <td><%= @to_go.body %></td>
