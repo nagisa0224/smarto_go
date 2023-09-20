@@ -1,30 +1,28 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-12 mx-auto">
-      <h4>Shop編集ページ</h4>
-      
-      <%= form_with model:  @shop, url: admin_shop_path(@shop.id), method: :patch do |f| %>
-        <div class="col-md-4">
-          <%= f.text_field :name %>
+    <h2 class="mt-3 ml-2 to_go-title text-center mx-auto">Shop編集ページ</h2>
+    <div class="col-12">
+      <div class="col-md-6 mt-5 mx-auto">
+        
+        <div class="text-right mb-1 return-button">
+          <%= link_to "戻る", admin_shop_path(@shop.id), class: "btn", style: "background-color: #64CCC5; color:white;" %>
         </div>
         
-        <div class="col-md-4">
-          <%= f.text_field :email %>
-        </div>
-        
-        <div class="col-md-4">
-          <div class="field">
+        <%= form_with model:  @shop, url: admin_shop_path(@shop.id), method: :patch do |f| %>
+          <div class="form-group text-center">
+            <h5>お店のステータス</h5>
             <%= f.radio_button :is_admission, false %>
-            <%= f.label :is_admission, "有効" %>
+            <%= f.label :is_admission, "退会済" %>
             <%= f.radio_button :is_admission, true %>
-            <%= f.label :is_admission, "退会" %>
+            <%= f.label :is_admission, "稼働中" %>
           </div>
-        </div>
+          
+          <div class="form-group text-center mt-5">
+            <%= f.submit "変更内容を保存", class: "btn", style: "background-color: #64CCC5; color:white;" %>
+          </div>
+        <% end %>
         
-        <div class="col-md-6 text-right">
-          <%= f.submit "変更内容を保存", class: "btn btn-success" %>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
