@@ -11,7 +11,7 @@
         <% end %>
       </div>
       
-      <div class="container col-11 mt-3">
+      <div class="container col-6 mt-3">
         <div class="row">
           <div class="table-responsive mr-4">
             <table class="table">
@@ -19,7 +19,6 @@
                 <tr>
                   <th class="col-2 text-center">名前</th>
                   <th class="col-2 text-center">日付</th>
-                  <th class="col-1 text-center">商品</th>
                 </tr>
               </thead>
               
@@ -27,17 +26,11 @@
                 <% @to_gos.each do |to_go| %>
                   <tr>
                     <td>
-                      <%= link_to to_go_path(to_go.id), class: "link" do %>
+                      <%= link_to history_show_path(to_go.id), class: "link" do %>
                         <%= to_go.customer_name %>様
                       <% end %>
                     </td>
                     <td><%= to_go.date %></td>
-                    <td>
-                      <% @to_go.reservation_details.each do |detail| %>
-                        <%= detail.item.product_name %>
-                        <%= detail.item_counts %>
-                      <% end %>
-                    </td>
                   </tr>
                 <% end %>
               </tbody>
@@ -49,5 +42,3 @@
     </div>
   </div>
 </div>
-
-<!-- レイアウトやってます 
