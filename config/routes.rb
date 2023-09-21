@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   
   
-  devise_for :shops, controllers: {
+  devise_for :shops, skip: [:passwords], controllers:{
     registrations: "shop/registrations",
     sessions: "shop/sessions"
   }

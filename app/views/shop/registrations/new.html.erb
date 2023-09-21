@@ -1,38 +1,41 @@
-<div class="registration-page">
-  <div class="sign-up-form">
-    <h4>新規登録</h4>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "shop/shared/error_messages", resource: resource %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="ses-reg-title mb-3"><span>新規登録</span></h2>
+      <div class="sign-up-form">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "shop/shared/error_messages", resource: resource %>
       
-      <div class="field">
-        <%= f.label :name, "お店の名前" %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          <div class="field">
+            <%= f.label :name, "お店の名前" %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          </div>
+        
+          <div class="sign-up-email-field">
+            <%= f.label :email, "メースアドレス" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+        
+          <div class="sign-up-password-field">
+            <%= f.label :password, "パスワード" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+        
+          <div class="sign-up-password-confirmation-field">
+            <%= f.label :password_confirmation, "パスワード 確認用" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+          
+          <div class="sign-up-button text-center mt-3">
+            <%= f.submit "新規登録", class: "btn", style: "background-color: #FF2E63; color: white; mx-3" %>
+          </div>
+        <% end %>
+        <%= render "shop/shared/links" %>
       </div>
+    </div>
     
-      <div class="sign-up-email-field">
-        <%= f.label :email, "メースアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-    
-      <div class="sign-up-password-field">
-        <%= f.label :password, "パスワード" %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-    
-      <div class="sign-up-password-confirmation-field">
-        <%= f.label :password_confirmation, "パスワード 確認用" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-    
-      <div class="sign-up-button">
-        <%= f.submit "新規登録" %>
-      </div>
-    <% end %>
-    
-    <%= render "shop/shared/links" %>
-
   </div>
 </div>
