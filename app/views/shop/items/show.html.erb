@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="row">
-    <h2 class="mt-3 ml-2 to_go-title text-center mx-auto">- 商品詳細 -</h2>
+    <h2 class="mt-3 ml-2 to_go-title text-center mx-auto"> 商品情報詳細 </h2>
     <div class="col-12">
       <div class="col-md-8 mt-5 mx-auto">
         
         <div class="text-right mb-3 return-button">
-          <%= link_to "戻る", items_path, class: "btn btn-primary" %>
+          <%= link_to "戻る", items_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>
         </div>
         
         <div class="row">
@@ -16,25 +16,25 @@
           </div>
           
           <div class="col-md-6">
-            <table class="table table-borderless">
+            <table class="table-item-show">
               <tr>
-                <td class="class-td">商品名</td>
+                <th>商品名</th>
                 <td><%= @item.product_name %></td>
               </tr>
               <tr>
-                <td class="class-td">在庫数</td>
+                <th>在庫数</th>
                 <td><%= @item.stock %></td>
               </tr>
               <tr>
-                <td class="class-td">最低在庫数</td>
+                <th>最低在庫数</th>
                 <td><%= @item.minimum_stock %></td>
               </tr>
               <tr>
-                <td class="class-td">備考</td>
+                <th>備考</th>
                 <td><%= @item.introduction %></td>
               </tr>
               <tr>
-                <td class="class-td">販売ステータス</td>
+                <th>販売ステータス</th>
                 <td><%= @item.item_status %></td>
               </tr>
             </table>
@@ -42,7 +42,7 @@
         </div>
         
         <div class="item-button text-center mt-5">
-          <%= link_to "編集する", edit_item_path(@item), class: "btn btn-primary" %>
+          <%= link_to "編集する", edit_item_path(@item), class: "btn", style: "background-color: #08D9D6; color:white;" %>
         </div>
         
       </div>
