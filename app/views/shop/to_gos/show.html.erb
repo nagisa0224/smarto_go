@@ -1,37 +1,37 @@
 <div class="container-fluid">
   <div class="row">
-    <h2 class="mt-3 ml-2 to_go-title text-center mx-auto">- To go予約詳細 -</h2>
+    <h2 class="mt-3 ml-2 to_go-title text-center mx-auto"> To go予約詳細 </h2>
     <div class="col-12">
       
       <div class="col-md-7 mt-5 mx-auto">
         
         <div class="text-right mb-1 return-button">
-          <%= link_to "戻る", to_gos_path, class: "btn", style: "background-color: #64CCC5; color:white;" %>
+          <%= link_to "戻る", to_gos_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>
         </div>
         
-        <table class="table table-bordered">
+        <table class="table-to_go-show">
           <tr>
-            <td class="class-td">名前</td>
+            <th>名前</th>
             <td><%= @to_go.customer_name %></td>
           </tr>
           
           <tr>
-            <td class="class-td">連絡先</td>
+            <th>連絡先</th>
             <td><%= @to_go.address %></td>
           </tr>
           
           <tr>
-            <td class="class-td">日付</td>
+            <th>日付</th>
             <td><%= @to_go.date %></td>
           </tr>
           
           <tr>
-            <td class="class-td">時間</td>
+            <th>時間</th>
             <td><%= @to_go.time %></td>
           </tr>
           
           <tr>
-            <td class="class-td">予約商品</td>
+            <th>予約商品</th>
             <td>
                 <% @to_go.reservation_details.each do |detail| %>
                   <%= detail.item.product_name %>：
@@ -42,13 +42,13 @@
           </tr>
           
           <tr>
-            <td class="class-td">備考</td>
+            <th>備考</th>
             <td><%= @to_go.body %></td>
           </tr>
         </table>
         
-          <div class="to_go-button text-center">
-            <%= link_to "編集する", edit_to_go_path, class: "btn", style: "background-color: #64CCC5; color: white;" %>
+          <div class="to_go-button text-center mt-3">
+            <%= link_to "編集する", edit_to_go_path, class: "btn", style: "background-color: #08D9D6; color: white;" %>
           </div>
 
         
