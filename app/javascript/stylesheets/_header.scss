@@ -1,33 +1,20 @@
-.main-header{
+.main-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: space-between; /* ボタンを右端寄りに配置 */
   width: 100%;
-  height: 170px;
-  background-color: #191970;
+  height: 250px;
+  background-color: #fff; /* 背景色を指定 */
+  padding: 0 100px 0 0; /* ヘッダーの左右に余白を追加 */
 }
 
-.logo img{
+.logo img {
   width: auto;
   height: auto;
 }
 
-.nav-buttons{
+.header-buttons {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   align-items: center;
-}
-
-.nav-buttons li{
-  text-decoration: none;
-  color: #fff;
-  padding: 10px 20px;
-  background-color: #afeeee;
-  border-radius: 5px;
-  desplay: inline-block;
-}
-
-.nav-bottons li:last-child{
-  margin-righat: 20px;
 }
