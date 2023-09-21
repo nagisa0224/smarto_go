@@ -1,6 +1,6 @@
 <div class="about">
   <div class="about-title">
-    <h2>About Smarto go</h2>
+    <h1>About Smarto go？</h1>
   </div>
   
   <br>
@@ -17,18 +17,21 @@
     <br>
     
     <div class="about-how">
-      <h3>How to use?</h3>
+      <h2>How to use?</h2>
     </div>
+    </br>
     <div class="explanation">
       <div class="explanation-1">
-        <h4>1  まずはあなたのお店を登録しましょう</h4>
+        <h4 class="about-h4">1. まずはあなたのお店を登録しましょう</h4>
+        </br>
         <p>あなたのお店の名前とメールアドレス、パスワードだけで簡単に登録ができます。</p>
       </div>
       
       <br>
       
       <div class="explanation-2">
-        <h4>2 あなたのお店の自慢の商品を登録しましょう！</h4>
+        <h4 class="about-h4">2. あなたのお店の自慢の商品を登録しましょう！</h4>
+        </br>
         <p>商品の名前や在庫数を入力してSmarto goに登録します。</p>
         <p>在庫数や最低在庫数を登録すると自動で管理し、商品が少なくなるとお知らせします。</p>
         <p>登録が完了したらサービスを開始できます。</p>
@@ -37,7 +40,8 @@
       <br>
       
       <div class="explanation-3">
-        <h4>3 あなたのお店の予約を管理していきましょう。</h4>
+        <h4 class="about-h4">3. あなたのお店の予約を管理していきましょう。</h4>
+        </br>
         <p>予約をSmarto goにお任せするだけで自動で在庫の管理をします。</p>
         <p>過去の予約も簡単チェックできます！</p>
         <p>予約数が在庫を上回るのを事前に回避するので予約ミスを防げます。</p>
@@ -46,8 +50,13 @@
       <br>
       
       <div class="explanation-4">
-        <h5>忙しい時期こそスマートに！さあ、Smarto goを始めましょう。</h5>
+        <h5 class="about-h4">忙しい時期こそスマートに！さあ、Smarto goを始めましょう。</h5>
       </div>
+      
+      <div class="registration-button mt-4">
+        <li><%= link_to "　新規登録　", new_shop_registration_path, class: "btn", style: "background-color: #ff2e63; color:white;" %></li>
+      </div>
+      
     </div>
   </div>
 </div>

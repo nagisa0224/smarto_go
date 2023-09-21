@@ -3,18 +3,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  height: 100vh;
-  background-color: #e0ffff;
 }
 
 .top-image img{
-  max-width: 100%;
-  height: auto;
+  width: 400px;
+  height: 230px;
   margin-bottom: 20px;
 }
 
 .top-message p{
   font-size: 25px;
   margin: 0
+}
+
+.message-1{
+  background-image: linear-gradient(transparent 0%, transparent 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-color: #08D9D6;
+  width: 500px;
+}
+
+.message-2{
+  background-image: linear-gradient(transparent 0%, transparent 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-color: #08D9D6;
+  width: 420px;
+  text-align: center;
 }
