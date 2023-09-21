@@ -5,7 +5,19 @@
   justify-content: center;
   text-align: center;
   padding: 20px;
-  background-color: #e0ffff;
+}
+
+h1,
+h2 {
+    padding: 0.8rem 0;
+    margin-bottom: 0.2rem;
+    background-image: linear-gradient(90deg, #08D9D6 0 50px, transparent 50px 60px, #FF2E63 0 60px);
+    background-repeat: no-repeat;
+    background-size: 100% 3px;
+    background-position: bottom;
+    color: #353535;
+    font-weight: bolder;
+    font-size: 40px;
 }
 
 .explanation{
@@ -15,18 +27,14 @@
   margin-top: 20px;
 }
 
-.explanation h4{
-  color: #ff6347;
+.about-h4{
+  padding: 0.2rem;
+  margin-bottom: 0.2rem;
+  background: linear-gradient(transparent 60%, #08D9D6 60%);
+  font-weight: bold;
+  font-size: 25px;
 }
 
-.explanation-1,
-.explanation-2,
-.explanation-3{
-  margin: 10px 0;
-  border: 3px solid #191970;
-  padding: 10px;
-  background-color: #afeeee;
-}
 
 .explanation-4{
   display: flex;
