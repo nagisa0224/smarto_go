@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-8 mt-5 mx-auto">
-      <h3 class="text-center">本当に退会しますか？</h3>
+      <h3 class="shop-title text-center"> 本当に退会しますか？ </h3>
       <br>
       <br>
       <p class="text-center">退会すると、現在のメールアドレスとパスワードでは<br>
@@ -10,8 +10,8 @@
       <br>
       <br>
       <div class="text-center">
-        <%= link_to "退会しない", shops_my_page_path, class: "btn btn-info w-25 mr-3" %>
-        <%= link_to "退会する", shops_withdraw_path, method: :patch, class: "btn btn-danger w-25" %>
+        <%= link_to "　戻る　", shops_my_page_path, class: "btn", style: "background-color: #08D9D6; color: white;" %>
+        <%= link_to "退会する", shops_withdraw_path, method: :patch, class: "btn", style: "background-color: #FF2E63; color: white;" %>
       </div>
     </div>
   </div>
