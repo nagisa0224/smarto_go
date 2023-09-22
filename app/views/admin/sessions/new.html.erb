@@ -1,30 +1,34 @@
-<div class="log-in-page">
-  <div class="log-in-form">
-    <h4>管理者ログイン</h4>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="log-in-email-field">
-        <%= f.label :email, "メールアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-      
-      <div class="log-in-email-field">
-        <%= f.label :password, "パスワード" %><br />
-        <%= f.email_field :password, autofocus: true, autocomplete: "current-password" %>
-      </div>
-      
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="ses-reg-title mb-3"><span> 管理者ログイン </span></h2>
+      <div class="sign-in-form">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="log-in-email-field">
+            <%= f.label :email, "メールアドレス" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+          
+          <div class="log-in-email-field">
+            <%= f.label :password, "パスワード" %><br />
+            <%= f.email_field :password, autofocus: true, autocomplete: "current-password" %>
+          </div>
+          
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+    
+          <div class="sign-in-button text-center mt-3">
+            <%= f.submit "ログイン", class: "btn", style: "background-color: #FF2E63; color: white; mx-3" %>
+          </div>
+        <% end %>
 
-      <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= render "admin/shared/links" %>
+        
       </div>
-    <% end %>
-
-    <%= render "admin/shared/links" %>
-      
+    </div>
   </div>
 </div>

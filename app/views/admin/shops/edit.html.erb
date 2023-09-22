@@ -1,16 +1,16 @@
 <div class="container-fluid">
   <div class="row">
-    <h2 class="mt-3 ml-2 to_go-title text-center mx-auto">Shop編集ページ</h2>
+    <h2 class="page-title text-center mx-auto"> Shop編集ページ </h2>
     <div class="col-12">
       <div class="col-md-6 mt-5 mx-auto">
         
         <div class="text-right mb-1 return-button">
-          <%= link_to "戻る", admin_shop_path(@shop.id), class: "btn", style: "background-color: #64CCC5; color:white;" %>
+          <%= link_to "戻る", admin_shop_path(@shop.id), class: "btn", style: "background-color: #08D9D6; color:white;" %>
         </div>
         
         <%= form_with model:  @shop, url: admin_shop_path(@shop.id), method: :patch do |f| %>
-          <div class="form-group text-center">
-            <h5>お店のステータス</h5>
+          <div class="text-center">
+            <h5 class="admin-edit"><span>お店のステータス</span></h5>
             <%= f.radio_button :is_admission, false %>
             <%= f.label :is_admission, "退会済" %>
             <%= f.radio_button :is_admission, true %>
@@ -18,7 +18,7 @@
           </div>
           
           <div class="form-group text-center mt-5">
-            <%= f.submit "変更内容を保存", class: "btn", style: "background-color: #64CCC5; color:white;" %>
+            <%= f.submit "変更内容を保存", class: "btn", style: "background-color: #08D9D6; color:white;" %>
           </div>
         <% end %>
         
