@@ -20,8 +20,8 @@ class Shop::ToGosController < ApplicationController
   
   
   def index
-    @to_gos = ToGo.all
-    @to_gos = ToGo.where('date >= ?', Date.current).order(:date)
+    @to_gos = ToGo.where('date >= ?', Date.current).order(:date).page(params[:page]).per(5)
+    @to_gos_all = ToGo.all
   end
   
   
@@ -61,7 +61,8 @@ class Shop::ToGosController < ApplicationController
   
   #予約履歴に関するコントローラー
   def history
-    @to_gos = ToGo.all
+    @to_gos = ToGo.page(params[:page]).per(1)
+    @to_gos_all = ToGo.all
   end
   
   
@@ -73,11 +74,11 @@ class Shop::ToGosController < ApplicationController
   
   #検索に関するコントローラー
   def search
-    @to_gos = ToGo.search(params[:keyword])
-    #@teamsは好きなものを入力して、Adminの部分には検索したいテーブル名を入力する
+    @to_gos = ToGo.search(params[:keyword]).page(params[:page]).per(1)
   end
   
   
+  #to_go indexチェックボタンの切り替え
   def change_status
     to_go = ToGo.find(params[:id])
     to_go.update(:status => !to_go.status)

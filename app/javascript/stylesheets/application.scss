@@ -134,3 +134,23 @@ h2 span {
   color: #FF2E63;
   font-weight: bold;
 }
+
+/* 以下ページネーション css */
+.pagination{
+  justify-content: center;
+}
+
+.pagination>li>a {          
+  border: none;     
+  color: #696969;   
+}
+
+.pagination>.active>a {     
+  background: #ffff00;     
+  border-radius: 15px;     
+}
+
+.pagination>li>a:hover {        
+  border-radius: 15px;   
+}
+
