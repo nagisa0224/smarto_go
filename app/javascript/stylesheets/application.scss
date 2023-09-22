@@ -22,6 +22,30 @@
   background-color: #fff;
 }
 
+.ses-reg-title{
+  padding: 0.2rem;
+  margin-bottom: 0.2rem;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+
+h2 span {
+  background: linear-gradient(transparent 60%, #FF2E63 60%);
+}
+
+.sign-up-form,
+.sign-in-form{
+  max-width: 400px;
+  padding: 20px 0;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #08D9D6;
+}
+
 /* 全ページタイトルcss */
 .page-title{
     padding: 0.8rem 0;
