@@ -68,3 +68,4 @@ gem "net-pop"
 gem "net-imap"
 
 gem 'kaminari'
+gem 'rails-i18n', '~> 6.0.0'
