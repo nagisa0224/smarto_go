@@ -7,6 +7,10 @@ class Shop < ApplicationRecord
   has_many :to_gos
   has_many :items
   
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  
   
   
 

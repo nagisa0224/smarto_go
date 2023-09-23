@@ -41,6 +41,7 @@ class Shop::ToGosController < ApplicationController
   def update
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
+    byebug
     if @to_go.update(to_go_params)
       redirect_to to_go_path(@to_go.id)
     else
