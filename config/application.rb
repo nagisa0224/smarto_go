@@ -21,6 +21,8 @@ module SmartoGo
     I18n.config.available_locales = :ja # 使用できる言語を文字列もしくは配列で指定する
     I18n.config.default_locale = :ja
     
+    config.active_model.i18n_customize_full_message = true
+    
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end

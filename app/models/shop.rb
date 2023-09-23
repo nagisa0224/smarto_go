@@ -7,7 +7,9 @@ class Shop < ApplicationRecord
   has_many :to_gos
   has_many :items
   
-  validates :email, uniqueness: { message: I18n.t("errors.exist") }
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
   
   
   

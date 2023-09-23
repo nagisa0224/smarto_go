@@ -4,7 +4,15 @@ ja:
       shop: 店舗
     attributes:
       shop:
-        name: 店舗名
+        name: お店の名前
         email: メールアドレス
-  errors:
-    exist: 存在しています！
+        password: パスワード
+    errors:
+      models:
+        shop:
+          attributes:
+            email:
+              format: '%{attribute} %{message}'
+              taken: この%{attribute}はすでに存在しています
+
+ 
