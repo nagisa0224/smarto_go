@@ -1,8 +1,10 @@
 class ToGo < ApplicationRecord
-  has_many :reservation_details, dependent: :destroy
+  has_many :reservation_details, inverse_of: :to_go, dependent: :destroy
   accepts_nested_attributes_for :reservation_details, allow_destroy: true
   has_many :items, through: :reservation_details
   belongs_to :shop
+  #validates_associated :reservation_details
+  
   
   #f.fields_forに必要な記述
   accepts_nested_attributes_for :reservation_details

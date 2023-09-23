@@ -35,18 +35,21 @@ class Shop::ToGosController < ApplicationController
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
     @items = Item.all
+    
+    logger.debug "Debug Information: #{@to_go}"
+
   end
   
   
   def update
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
-    byebug
     if @to_go.update(to_go_params)
       redirect_to to_go_path(@to_go.id)
     else
       render :edit
     end
+     logger.debug "Debug Information: #{@to_go}"
   end
   
   
