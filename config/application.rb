@@ -18,5 +18,7 @@ module SmartoGo
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    I18n.config.available_locales = :ja # 使用できる言語を文字列もしくは配列で指定する
+    I18n.config.default_locale = :ja
   end
 end
