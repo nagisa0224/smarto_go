@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        current_password: "現在のパスワード"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
+    models:
+      user: "ユーザ"
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: "アカウント確認メール再送"
+  errors:
+    messages:
+      not_saved: "以下の%{count}エラーが発生したため登録できませんでした。%{resource}"
