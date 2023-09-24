@@ -11,9 +11,6 @@ class ToGo < ApplicationRecord
   
   validates :customer_name, presence: true
   validates :date, presence: true
-  #下２つコメントアウト外すとトランザクションがロールバックされちゃう
-  #validates :product_name, presence: true
-  #validates :item_counts, presence: true
   
   
   def self.search(keyword)

@@ -1,9 +1,16 @@
 <div class="nested-fields">
-  <div class="field">
-    <%= f.number_field :item_counts %>
+  <div class="form-group row">
+    <div class="col-md-4">
+      <%= f.collection_select :item_id, Item.all, :id, :product_name, { prompt: '選択してください' }, class: 'form-control' %>
+    </div>
+    
+    <div class="col-md-4">
+      <%= f.number_field :item_counts, class: 'form-control' %>
+    </div>
+  
+    <div class="col-md-2">
+      <%= link_to_remove_association "削除", f, class: "btn", style: "background-color: #FF2E63; color: white; mx-3" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.collection_select :item_id, Item.all, :id, :product_name %>
-  </div>
-  <%= link_to_remove_association "削除", f %>
+
 </div>
