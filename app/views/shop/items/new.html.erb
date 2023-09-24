@@ -4,6 +4,10 @@
     <div class="col-12">
       <div class="col-md-6 mt-5 mx-auto">
         
+        <div class="text-danger text-center">
+          <%= flash[:alert] %>
+        </div>
+        
         <div class="return-button text-right mb-1">
           <%= link_to "戻る", items_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>
         </div>

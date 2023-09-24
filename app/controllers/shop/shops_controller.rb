@@ -17,8 +17,10 @@ class Shop::ShopsController < ApplicationController
   def update
     @shop = current_shop
     if @shop.update(shop_params)
+      flash[:notice] = "お店の情報が更新されました！"
       redirect_to shops_my_page_path
     else
+      flash[:alert] = "お店の情報に不備があるため更新ができませんでした"
       render :edit
     end
   end
@@ -31,6 +33,7 @@ class Shop::ShopsController < ApplicationController
     @shop = current_shop
     @shop.update(is_admission: true)
     reset_session
+    flash[:destroy] = "退会手続きが正常に完了しました。あなたとまたお会いできることを願っています！"
     redirect_to root_path
   end
   
