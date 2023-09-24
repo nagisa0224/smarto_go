@@ -10,8 +10,10 @@ class Shop::ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.shop_id = current_shop.id
     if @item.save
+      flash[:notice] = "商品が追加されました！"
       redirect_to item_path(@item.id)
     else
+      flash[:alert] = "情報に不備があります"
       render :new
     end
   end
@@ -35,8 +37,10 @@ class Shop::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.shop_id = current_shop.id
     if @item.update(item_params)
+      flash[:notice] = "商品情報が更新されました！"
       redirect_to item_path(@item.id)
     else
+      flash[:alert] = "商品情報に不備があるため更新できませんでした"
       render :edit
     end
   end
@@ -44,6 +48,7 @@ class Shop::ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
+      flash[:alert] = "商品情報を削除しました"
       redirect_to items_path
     else
       render :edit

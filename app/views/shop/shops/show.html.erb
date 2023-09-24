@@ -3,6 +3,10 @@
     <h2 class="page-title text-center mx-auto"> Shop マイページ </h2>
     <div class="col-12">
       <div class="col-md-8 mt-5 mx-auto">
+        
+        <div class="text-success text-center">
+          <%= flash[:notice] %>
+        </div>
           
         <div class="history-button text-right mb-1">
           <%= link_to "予約履歴", history_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>

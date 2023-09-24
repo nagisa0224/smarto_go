@@ -1,7 +1,12 @@
 <div class="container-fluid">
   <div class="row">
     <h2 class="page-title text-center mx-auto"> To go予約一覧 </h2>
+    
     <div class="col-12">
+      
+      <div class="text-danger text-center mt-3">
+        <%= flash[:alert] %>
+      </div>
         
       <div class="plus-button col-md-11 text-right">
         <%= link_to "新規予約追加", new_to_go_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>

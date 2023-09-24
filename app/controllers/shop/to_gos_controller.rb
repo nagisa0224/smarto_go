@@ -13,8 +13,10 @@ class Shop::ToGosController < ApplicationController
     @to_go = ToGo.new(to_go_params)
     @to_go.shop_id = current_shop.id
     if @to_go.save_and_decrease_stock
+      flash[:notice] = "予約が作成されました！"
       redirect_to to_go_path(@to_go.id)
     else
+      flash[:alert] = "作成に不備があります"
       render :new
     end
   end
@@ -43,8 +45,10 @@ class Shop::ToGosController < ApplicationController
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
     if @to_go.update(to_go_params)
+      flash[:notice] = "予約情報が更新されました！"
       redirect_to to_go_path(@to_go.id)
     else
+      flash[:alert] = "予約情報の不備があるため更新ができませんでした"
       render :edit
     end
   end
@@ -53,6 +57,7 @@ class Shop::ToGosController < ApplicationController
   def destroy
     @to_go = ToGo.find(params[:id])
     if @to_go.destroy
+      flash[:alert] = "予約が削除されました"
       redirect_to to_gos_path
     else
       render :edit
