@@ -7,7 +7,7 @@ class ToGo < ApplicationRecord
   
   
   #f.fields_forに必要な記述
-  accepts_nested_attributes_for :reservation_details
+  accepts_nested_attributes_for :reservation_details, reject_if: :all_blank, allow_destroy: true
   
   validates :customer_name, presence: true
   validates :date, presence: true
