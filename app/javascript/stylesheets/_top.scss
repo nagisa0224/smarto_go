@@ -10,6 +10,19 @@
   font-size: 100px;
 }
 
+h1 {
+    padding: 0.2rem;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+}
+
+h1 span {
+    background: linear-gradient(transparent 60%, #ff2e63 60%);
+}
+
+
 .top-message p{
   font-size: 25px;
   margin: 0
