@@ -1,5 +1,7 @@
 class Shop::ToGosController < ApplicationController
   
+  before_action :authenticate_shop!
+  
   def new
     @to_go = ToGo.new
     @reservation_detail = @to_go.reservation_details.build
@@ -9,7 +11,6 @@ class Shop::ToGosController < ApplicationController
   
   def create
     @to_go = ToGo.new(to_go_params)
-    #byebug
     @to_go.shop_id = current_shop.id
     if @to_go.save_and_decrease_stock
       redirect_to to_go_path(@to_go.id)
@@ -35,22 +36,17 @@ class Shop::ToGosController < ApplicationController
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
     @items = Item.all
-    
-    logger.debug "Debug Information: #{@to_go}"
-
   end
   
   
   def update
     @to_go = ToGo.find(params[:id])
     @to_go.shop_id = current_shop.id
-    # byebug
     if @to_go.update(to_go_params)
       redirect_to to_go_path(@to_go.id)
     else
       render :edit
     end
-     logger.debug "Debug Information: #{@to_go}"
   end
   
   

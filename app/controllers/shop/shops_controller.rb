@@ -1,5 +1,7 @@
 class Shop::ShopsController < ApplicationController
   
+  before_action :authenticate_shop!
+  
   def show
     @shop = current_shop
     # @nor_items = Items.where(shop_id: current_shop.id, notification: true)

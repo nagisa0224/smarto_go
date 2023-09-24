@@ -1,5 +1,7 @@
 class Shop::ItemsController < ApplicationController
   
+  before_action :authenticate_shop!
+  
   def new
     @item = Item.new
   end
