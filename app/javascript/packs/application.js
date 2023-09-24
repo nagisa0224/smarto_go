@@ -17,9 +17,9 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
 
-require("@rails/ujs").start()
-require("turbolinks").start()  //私はいつもコメントアウトします
-require("@rails/activestorage").start()
-require("channels")
-require('jquery') //これを追記
+// require("@rails/ujs").start()
+// require("turbolinks").start()  //私はいつもコメントアウトします
+// require("@rails/activestorage").start()
+// require("channels")
+// require('jquery') //これを追記
 import "cocoon"
