@@ -11,7 +11,7 @@
           
           <div class="log-in-email-field">
             <%= f.label :password, "パスワード" %><br />
-            <%= f.email_field :password, autofocus: true, autocomplete: "current-password" %>
+            <%= f.password_field :password, autofocus: true, autocomplete: "current-password" %>
           </div>
           
           <% if devise_mapping.rememberable? %>
