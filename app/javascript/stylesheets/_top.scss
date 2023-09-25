@@ -46,18 +46,3 @@ h1 span {
   width: 420px;
   text-align: center;
 }
-
-@media (max-width: 425px){
-  .top-title{
-    font-size: 90px;
-    margin: 10px;
-  }
-  
-  .message-1,
-  .message-2 {
-    text-align: center; /* テキストを中央揃えにする */
-    max-width: 100%; /* 最大幅を親要素に合わせる */
-    margin-left: auto; /* 左側の余白を自動調整 */
-    margin-right: auto; /* 右側の余白を自動調整 */
-  }
-}

@@ -24,6 +24,7 @@
         
                 <div class="card-body">
                   <h5 class="card-title"><%= item.product_name %></h5>
+                  <h6 class="item-stock">現在の在庫数　<%= item.stock %></h6>
                   <% if item.is_active == true %>
                     <p class="text-success">販売中</p>
                   <% else %>
