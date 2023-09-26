@@ -5,6 +5,10 @@
       
       <div class="col-md-7 mt-5 mx-auto">
         
+        <div class="text-success text-center">
+          <%= flash[:notice] %>
+        </div>
+        
         <div class="text-right mb-1 return-button">
           <%= link_to "戻る", admin_shops_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>
         </div>

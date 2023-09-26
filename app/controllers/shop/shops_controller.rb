@@ -4,8 +4,6 @@ class Shop::ShopsController < ApplicationController
   
   def show
     @shop = current_shop
-    # @nor_items = Items.where(shop_id: current_shop.id, notification: true)
-    
     # 自身のショップのアイテムのみ、かつ、最低在庫を下回っているアイテムを取得
     @nor_items = Item.where(shop_id: current_shop.id).where('stock < minimum_stock')
   end

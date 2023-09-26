@@ -33,7 +33,6 @@ class Shop::ItemsController < ApplicationController
     @item.shop_id = current_shop.id
   end
   
-  #今回update重複しません！
   def update
     @item = Item.find(params[:id])
     @item.shop_id = current_shop.id
