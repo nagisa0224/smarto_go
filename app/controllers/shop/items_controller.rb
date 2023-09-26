@@ -19,7 +19,8 @@ class Shop::ItemsController < ApplicationController
   end
   
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(12)
+    @items_all = Item.all
   end
   
   def show
