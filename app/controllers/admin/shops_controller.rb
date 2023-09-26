@@ -3,7 +3,8 @@ class Admin::ShopsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @shops = Shop.all
+    @shops = Shop.page(params[:page]).per(30)
+    @shops_all = Shop.all
   end
   
   def show
@@ -17,8 +18,10 @@ class Admin::ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
+      flash[:notice] = "お店の情報が更新されました！"
       redirect_to admin_shop_path(@shop)
     else
+      flash[:alert] = "お店の情報に不備があるため更新ができませんでした"
       render :edit
     end
   end
