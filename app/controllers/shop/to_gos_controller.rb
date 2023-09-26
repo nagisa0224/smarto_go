@@ -67,7 +67,7 @@ class Shop::ToGosController < ApplicationController
   
   #予約履歴に関するコントローラー
   def history
-    @to_gos = ToGo.page(params[:page]).per(1)
+    @to_gos = ToGo.page(params[:page]).per(20)
     @to_gos_all = ToGo.all
   end
   
