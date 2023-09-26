@@ -23,7 +23,7 @@ class Shop::ToGosController < ApplicationController
   
   
   def index
-    @to_gos = ToGo.where('date >= ?', Date.current).order(:date).page(params[:page]).per(5)
+    @to_gos = ToGo.where('date >= ?', Date.current).order(:date).page(params[:page]).per(20)
     @to_gos_all = ToGo.all
   end
   
@@ -80,7 +80,7 @@ class Shop::ToGosController < ApplicationController
   
   #検索に関するコントローラー
   def search
-    @to_gos = ToGo.search(params[:keyword]).page(params[:page]).per(1)
+    @to_gos = ToGo.search(params[:keyword]).page(params[:page]).per(20)
   end
   
   

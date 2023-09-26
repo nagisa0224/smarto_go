@@ -3,7 +3,8 @@ class Admin::ShopsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @shops = Shop.all
+    @shops = Shop.page(params[:page]).per(30)
+    @shops_all = Shop.all
   end
   
   def show
