@@ -7,6 +7,8 @@ class Item < ApplicationRecord
     
     validates :product_name, presence: true
     
+    scope :available_items, -> { where(is_active: true) }
+    
     def item_status
         if is_active == true
             "販売中"
