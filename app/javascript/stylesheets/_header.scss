@@ -18,3 +18,35 @@
   gap: 50px;
   align-items: center;
 }
+
+
+
+
+@media (max-width: 425px){
+  .main-header {
+    width: 100%;
+    height: 180px;
+    padding-right: 10px;
+  }
+  
+  .logo img {
+    width: 90%;
+    height: 180px;
+    vertical-align: middle;
+  }
+  
+  .header-buttons {
+    display: block;
+  }
+  
+  .main-footer{
+    width: 100%;
+    heigth: 170px;
+  }
+  
+  .footer-image{
+    width: auto;
+    height: 170px;
+    vertical-align: middle;
+  }
+}

@@ -46,3 +46,19 @@ h1 span {
   width: 420px;
   text-align: center;
 }
+
+
+@media (425px <= width) {
+  .message-1,
+  .message-2{
+    display: none; /* 非表示 */
+  }
+}
+
+  
+@media (max-width: 425px){
+  .top-title{
+    font-size: 90px;
+    text-align: center;
+  }
+}
