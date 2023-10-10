@@ -1,34 +1,20 @@
-@media screen and (max-width: 640px){
-  .table-index{
+
+
+@media (max-width: 425px){
+  .table-index {
     width: 80%;
-  } 
-  
-  .table-index thead{
+  }
+  .table-index .thead {
     display: none;
   }
-  
-  .table-index tr,
-  .table-index td{
-    display: block;
-    width: 100%;
-    position: relative;
+  .table-index td {
+    display: inline-block;
   }
-  
-  .table-index td:first-child:before {
-    content: "見出し:before";
-    background: #e9727e;
-    box-sizing: border-box;
-    color: #fff;
+  .table-index span {
     font-weight: bold;
-    height: 40px;
-    padding: 10px;
-    position: absolute;
-    top: -41px;
-    left: -0.2%;
-    display: block;
-    width: 100.5%;
   }
-  .table-index tr {
-    margin-bottom: 40px;
+  .table-index .last {
+    border-bottom: none;
   }
 }
+ 
