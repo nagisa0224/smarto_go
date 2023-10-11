@@ -1,20 +1,45 @@
-
+@media (min-width: 426px){
+  .sp {
+    display: none; /* 非表示 */
+  }
+}
 
 @media (max-width: 425px){
   .table-index {
-    width: 80%;
+    width: 90%;
+    margin-left: 30px;
   }
-  .table-index .thead {
+  
+  .table-index .thead{
     display: none;
   }
-  .table-index td {
+  
+  .table-index td{
+    border: none;
+  }
+  
+  .table-index td{
     display: inline-block;
   }
-  .table-index span {
+  
+  .table-index span{
     font-weight: bold;
   }
-  .table-index .last {
+  
+  .table-index .last{
     border-bottom: none;
+  }
+  
+  .sp{
+    display: inline;
+  }
+  
+  .table-index tbody tr:nth-child(odd){
+    background-color: #ffbcdd; /* 奇数行の背景色 */
+  }
+
+  .table-index tbody tr:nth-child(even){
+    background-color: #bcffff; /* 偶数行の背景色 */
   }
 }
  

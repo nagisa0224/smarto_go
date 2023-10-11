@@ -39,16 +39,16 @@
                 <% @to_gos.each do |to_go| %>
                   <tr>
                     <td>
-                      <span class="sp">名前</span>
+                      <span class="sp">名前：</span>
                       <%= link_to to_go_path(to_go.id), class: "link" do %>
                         <%= to_go.customer_name %>様
                       <% end %>
                     </td>
-                    <td><span class="sp">日付</span><%= to_go.date %></td>
-                    <td><span class="sp">時間</span><%= to_go.time %></td>
-                    <td><span class="sp">備考</span><%= to_go.body %></td>
+                    <td><span class="sp">日付：</span><%= to_go.date %></td>
+                    <td><span class="sp">時間：</span><%= to_go.time %></td>
+                    <td><span class="sp">備考：</span><%= to_go.body %></td>
                     <td>
-                      <span class="sp">チェック</span>
+                      <span class="sp">チェック↓</span>
                       <%= form_with model: to_go, url: change_status_path(to_go) do |f| %>
                         <%= f.submit to_go.status == true ? "受け取り済み" : "受け渡し前", class: "btn btn-sm", style: "background-color: #08D9D6; color:white;" %>
                       <% end %>
