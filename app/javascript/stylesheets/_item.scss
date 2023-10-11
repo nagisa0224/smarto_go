@@ -6,3 +6,10 @@
 .card-img-top{
   object-fit: cover;
 }
+
+
+@media (max-width: 425px){
+  .table-show{
+    margin-top: 15px;
+  }
+}
