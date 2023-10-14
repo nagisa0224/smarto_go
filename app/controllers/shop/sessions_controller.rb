@@ -35,6 +35,8 @@ class Shop::SessionsController < Devise::SessionsController
     @shop = Shop.find_by(email: params[:shop][:email])
     if @shop
       if @shop.valid_password?(params[:shop][:password]) && (@shop.is_admission == false)
+        #フラッシュメッセージ
+        flash[:alert] = "すでに退会しているためログインできません"
         redirect_to new_shop_registration_path
       end
     end

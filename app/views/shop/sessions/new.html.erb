@@ -4,6 +4,10 @@
       <h2 class="ses-reg-title mb-3"><span> ログイン </span></h2>
       <div class="sign-in-form">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <!-- フラッシュメッセージ -->
+          <div class="text-center">
+            <%= flash[:alert] %>
+          </div>
           <%= render "shop/shared/error_messages", resource: resource %>
           
           <div class="log-in-field">
@@ -23,7 +27,7 @@
             </div>
           <% end %>
           
-          <div class="log-in-button text-center mt-3">
+          <div class="log-in-button text-center mt-3 mb-2">
             <%= f.submit "ログイン", class: "btn", style: "background-color: #FF2E63; color: white; mx-3" %>
           </div>
           
