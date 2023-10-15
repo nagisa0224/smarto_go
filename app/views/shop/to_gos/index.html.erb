@@ -16,6 +16,7 @@
         <%= form_with url: search_path, method: :get do |f| %>
           <%= f.label :keyword, "名前で検索", class: "custom-label-class" %>
           <%= f.text_field :keyword %>
+          <%= f.hidden_field :type, value: "togo" %>
           <%= f.submit "検索", class: "btn", style: "background-color: #FF2E63; color:white;" %>
         <% end %>
       </div>
