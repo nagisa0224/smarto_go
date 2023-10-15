@@ -14,6 +14,8 @@ ja:
     confirmations:
       new:
         resend_confirmation_instructions: "アカウント確認メール再送"
+    failure:
+      invalid: "空白があるためログインできませんでした。"
   errors:
     messages:
       not_saved: "以下%{count}件のエラーが発生したため登録できませんでした。"
