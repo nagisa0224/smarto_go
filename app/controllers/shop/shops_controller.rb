@@ -29,7 +29,7 @@ class Shop::ShopsController < ApplicationController
   
   def withdraw
     @shop = current_shop
-    @shop.update(is_admission: true)
+    @shop.update(is_admission: false)
     reset_session
     flash[:destroy] = "退会手続きが正常に完了しました。あなたとまたお会いできることを願っています！"
     redirect_to root_path
