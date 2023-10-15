@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :shops, except: [:new, :create, :destoroy]
-    
+    get "/search", to: "admin#search"
   end
   
   
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     
     resources :items
     
-    #resources :resercation_details, only: [:new, :create, :index, :show]
+    #resources :resercation_details
     
     #resources :notification
     

@@ -80,7 +80,7 @@ class Shop::ToGosController < ApplicationController
   
   #検索に関するコントローラー
   def search
-    @to_gos = ToGo.search(params[:keyword]).page(params[:page]).per(20)
+    @to_gos = ToGo.where(shop_id: current_shop.id).where('date >= ?', Date.current).order(:date).search(params[:keyword]).page(params[:page]).per(20)
     @type = params[:type]
   end
   
