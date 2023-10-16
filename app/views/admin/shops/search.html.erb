@@ -1,3 +1,5 @@
+<!-- admin側 お店一覧の検索結果画面 -->
+
 <div class="container-fluid">
   <div class="row">
     <h2 class="page-title text-center mx-auto"> 検索結果一覧 </h2>
@@ -7,42 +9,9 @@
         <%= link_to "戻る", admin_shops_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>
       </div>
       
-      <div class="container col-8 mt-3">
-        <div class="row">
-          <div class="table-responsive mr-4">
-            <table class="table table-index">
-              <thead>
-                <tr>
-                  <th class="col-2 text-center">お店id</th>
-                  <th class="col-2 text-center">お店の名前</th>
-                  <th class="col-2 text-center">ステータス</th>
-                </tr>
-              </thead>
-              
-              <tbody>
-                <% @shops.each do |shop| %>
-                  <tr>
-                    <td><%= shop.id %></td>
-                    <td>
-                      <%= link_to admin_shop_path(shop.id), class: "link" do %>
-                        <%= shop.name %>
-                      <% end %>
-                    </td>
-                    <td>
-                      <% if shop.is_admission == true %>
-                        <p class="text-success">稼働中</p>
-                      <% else %>
-                        <p class="text-danger">退会済</p>
-                      <% end %>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <%= paginate @shops, class: "pagenation" %>
-      </div>
+      <%= render "shop_index_table" %>
+      
+      <%= paginate @shops, class: "pagenation" %>
     </div>
   </div>
 </div>

@@ -1,3 +1,5 @@
+<!-- 予約履歴一覧の検索結果画面 -->
+
 <div class="container-fluid">
   <div class="row">
     <h2 class="page-title text-center mx-auto"> 検索結果一覧 </h2>
@@ -7,36 +9,8 @@
         <%= link_to "戻る", history_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>
       </div>
       
-      <div class="container col-9 mt-3">
-        <div class="row">
-          <div class="table-responsive mr-4">
-            
-            <table class="table table-index">
-              <thead>
-                <tr class="thead">
-                  <th class="col-2 text-center">名前</th>
-                  <th class="col-2 text-center">日付</th>
-                </tr>
-              </thead>
-              
-              <tbody>
-                <% @to_gos.each do |to_go| %>
-                  <tr>
-                    <td>
-                      <span class="sp">名前：</span>
-                      <%= link_to history_show_path(to_go.id), class: "link" do %>
-                        <%= to_go.customer_name %>様
-                      <% end %>
-                    </td>
-                    <td><span class="sp">日付：</span><%= to_go.date %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-            
-          </div>
-        </div>
-      </div>
+      <%= render "to_go_index_table" %>
+      
       <%= paginate @to_gos, class: "pagination" %>
     </div>
   </div>
