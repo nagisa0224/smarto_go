@@ -84,6 +84,11 @@ class Shop::ToGosController < ApplicationController
     @type = params[:type]
   end
   
+  def history_search
+    @to_gos = ToGo.where(shop_id: current_shop.id).search(params[:keyword]).page(params[:page]).per(20)
+    @type = params[:type]
+  end
+  
   
   #to_go indexチェックボタンの切り替え
   def change_status

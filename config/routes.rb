@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   }
   
   namespace :admin do
-    resources :shops, except: [:new, :create, :destoroy]
-    get "/search", to: "admin#search"
+    resources :shops, except: [:new, :create, :destroy] do
+      get "search", on: :collection
+    end
   end
   
   
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   }
   
   devise_scope :shop do
-    get '/shops/sign_out' => 'devise/sessions#destroy'
+    get "/shops/sign_out" => "devise/sessions#destroy"
   end
   
   scope module: :shop do
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
     get "/history" => "to_gos#history"
     get "/history/show/:id" => "to_gos#history_show", as: :history_show
     get "/search", to: "to_gos#search"
+    get "/history/search", to: "to_gos#history_search"
     patch "/change_status/:id" => "to_gos#change_status", as: :change_status
     
   end

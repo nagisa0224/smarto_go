@@ -3,6 +3,11 @@
     <h2 class="page-title text-center mx-auto"> 検索結果一覧 </h2>
     <% if @type == "to-go" %>
       <div class="col-12">
+        
+        <div class="return-button col-10 text-right mb-1">
+          <%= link_to "戻る", to_gos_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>
+        </div>
+        
         <div class="container col-11 mt-3">
           <div class="row">
             <div class="table-responsive mr-4">
@@ -45,7 +50,7 @@
         <%= paginate @to_gos, class: "pagination" %>
       </div>
       
-    <% elsif @type == "history" %>
+    <% else %>
     
       <div class="col-12">
         <div class="return-button col-10 text-right mb-1">
@@ -83,45 +88,6 @@
           </div>
         </div>
         <%= paginate @to_gos, class: "pagination" %>
-      </div>
-      
-    <% else %>
-    
-      <div class="container col-8">
-        <div class="row">
-          <div class="table-responsive mr-4">
-            <table class="table table-index">
-              <thead>
-                <tr>
-                  <th class="col-2 text-center">お店id</th>
-                  <th class="col-2 text-center">お店の名前</th>
-                  <th class="col-2 text-center">ステータス</th>
-                </tr>
-              </thead>
-            
-              <tbody>
-                <% @shops.each do |shop| %>
-                  <tr>
-                    <td><%= shop.id %></td>
-                    <td>
-                      <%= link_to admin_shop_path(shop.id), class: "link" do %>
-                        <%= shop.name %>
-                      <% end %>
-                    </td>
-                    <td>
-                      <% if shop.is_admission == true %>
-                        <p class="text-success">稼働中</p>
-                      <% else %>
-                        <p class="text-danger">退会済</p>
-                      <% end %>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <%= paginate @shops, class: "pagenation" %>
       </div>
       
     <% end %>
