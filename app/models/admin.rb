@@ -12,5 +12,6 @@ class Admin < ApplicationRecord
             "退会済"
         end
   end
+
   
 end

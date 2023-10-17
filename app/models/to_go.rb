@@ -23,6 +23,16 @@ class ToGo < ApplicationRecord
   end
   
   
+  def self.history_search(keyword)
+    if keyword
+      ToGo.where(["customer_name LIKE ?", "%#{keyword}%"])
+    else
+      ToGo.all
+      #検索結果が当てはまらない場合は全て表示させる（必要ない場合は削除する）
+    end
+  end
+  
+  
   def save_and_decrease_stock
     ActiveRecord::Base.transaction do
       save!

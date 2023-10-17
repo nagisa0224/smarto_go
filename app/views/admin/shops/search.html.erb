@@ -1,0 +1,18 @@
+<!-- admin側 お店一覧の検索結果画面 -->
+
+<div class="container-fluid">
+  <div class="row">
+    <h2 class="page-title text-center mx-auto"> 検索結果一覧 </h2>
+    <div class="col-12">
+      
+      <div class="return-button col-10 text-right mb-1">
+        <%= link_to "戻る", admin_shops_path, class: "btn", style: "background-color: #08D9D6; color:white;" %>
+      </div>
+      
+      <%= render "shop_index_table" %>
+      
+      <%= paginate @shops, class: "pagenation" %>
+    </div>
+  </div>
+</div>
+  

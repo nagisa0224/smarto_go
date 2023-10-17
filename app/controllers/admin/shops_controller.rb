@@ -26,6 +26,11 @@ class Admin::ShopsController < ApplicationController
     end
   end
   
+  def search
+    @shops = Shop.search(params[:keyword]).page(params[:page]).per(20)
+    @type = params[:type]
+  end
+  
   
   private
   

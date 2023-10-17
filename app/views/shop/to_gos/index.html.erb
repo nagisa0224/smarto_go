@@ -16,52 +16,13 @@
         <%= form_with url: search_path, method: :get do |f| %>
           <%= f.label :keyword, "名前で検索", class: "custom-label-class" %>
           <%= f.text_field :keyword %>
-          <%= f.hidden_field :type, value: "togo" %>
+          <%= f.hidden_field :type, value: "to-go" %>
           <%= f.submit "検索", class: "btn", style: "background-color: #FF2E63; color:white;" %>
         <% end %>
       </div>
           
-      <div class="container col-11 mt-3">
-        <div class="row">
-          <div class="table-responsive mr-4">
-              
-            <table class="table table-index">
-              <thead>
-                <tr class="thead">
-                  <th class="col-2 text-center">名前</th>
-                  <th class="col-2 text-center">日付</th>
-                  <th class="col-1 text-center">時間</th>
-                  <th class="col-3 text-center">備考</th>
-                  <th class="col-2 text-center">チェック</th>
-                </tr>
-              </thead>
-                
-              <tbody>
-                <% @to_gos.each do |to_go| %>
-                  <tr>
-                    <td>
-                      <span class="sp">名前：</span>
-                      <%= link_to to_go_path(to_go.id), class: "link" do %>
-                        <%= to_go.customer_name %>様
-                      <% end %>
-                    </td>
-                    <td><span class="sp">日付：</span><%= to_go.date %></td>
-                    <td><span class="sp">時間：</span><%= to_go.time %></td>
-                    <td><span class="sp">備考：</span><%= to_go.body %></td>
-                    <td>
-                      <span class="sp">チェック↓</span>
-                      <%= form_with model: to_go, url: change_status_path(to_go) do |f| %>
-                        <%= f.submit to_go.status == true ? "受け取り済み" : "受け渡し前", class: "btn btn-sm", style: "background-color: #08D9D6; color:white;" %>
-                      <% end %>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-              
-          </div>
-        </div>
-      </div>
+      <%= render "to_go_index_table" %>
+      
       <%= paginate @to_gos, class: "pagenation" %>
     </div>
   </div>

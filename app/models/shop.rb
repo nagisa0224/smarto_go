@@ -11,7 +11,14 @@ class Shop < ApplicationRecord
   validates :email, presence: true
 
   
-  
+  def self.search(keyword)
+    if keyword
+      Shop.where(["name LIKE ?", "%#{keyword}%"])
+    else
+      Shop.all
+      #検索結果が当てはまらない場合は全て表示させる（必要ない場合は削除する）
+    end
+  end
   
 
 end
