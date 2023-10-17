@@ -2,7 +2,7 @@
 ​
 ## サイト概要
 ### サイトテーマ
-To go (テイクアウト)があるお店向け、お持ち帰り商品の予約と在庫の管理ができるサイトです。
+To go (テイクアウト)を展開しているお店向け、お持ち帰り商品の予約と在庫の管理が簡単にできるサイトです。
 ​
 ### テーマを選んだ理由
 学生時代にアルバイトしていた飲食店が、新型コロナウイルスの影響で客足が大幅に減少しました。  
@@ -22,19 +22,23 @@ To go (テイクアウト)があるお店向け、お持ち帰り商品の予約
 ### 主な利用シーン
 - To goの予約を受ける時
 - 商品の残り在庫数を知りたい時
+- 過去の予約履歴を遡りたい時
 ​
 ## 設計書
-あとで追記します
+- ER図： https://drive.google.com/file/d/1_32IsvsABWvX8ULtgoUwqhmsqhGSrFRJ/view?usp=sharing
+- テーブル定義書： https://docs.google.com/spreadsheets/d/1EK0X6uxY6SdGmqcPSfdmshO8RLlDrR1m/edit?usp=sharing&ouid=103649154562156065253&rtpof=true&sd=true
+- 画面遷移図： https://docs.google.com/spreadsheets/d/1tbunwsRK1IMslOIm_i5AEN1BTuLosmrG/edit?usp=sharing&ouid=103649154562156065253&rtpof=true&sd=true
+- アプリケーション詳細設計書： https://docs.google.com/spreadsheets/d/1SNKSynxzR3bnCH1PsgUwITK2fi3uUCRisigUEcrO6Vo/edit?usp=sharing
+- 画面設計書：https://drive.google.com/file/d/11m-iNUYxCz9Rt0Q4HgIBaUFYYF0lpZVg/view?usp=sharing
+- テスト仕様書： https://docs.google.com/spreadsheets/d/1kTyiFDkJLnsgns6Q9lczBAVzgvs9jMuWZqL4qggArsg/edit?usp=sharing
 ​
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
+- JSライブラリ：jQuery,devise,kaminari,cocoon,rails-i18n
 - IDE：Cloud9
 ​
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- アプリケーションの実装に使用したgem/bootstrapのリファレンスなどの記載は不要です。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- Canva: 無料ロゴ作成ツール
 折りたたむ
